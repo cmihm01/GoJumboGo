@@ -37,3 +37,6 @@ Any algorithms or special techniques that will be necessary
 Electronic mockups of what your team will be developing using wireframes. No hand-drawn mockups accepted. Tools to create wireframes includeBalsamiq (commercial; de facto standard), Gliffy, MockFlow, and even Microsoft PowerPoint.
 
 
+Mock Ups
+![Alt text](/tuftsdev/comp20-f2016-team3/blob/master/GoJumboGoLanding.pdf?raw=true)
+
