@@ -38,5 +38,5 @@ Electronic mockups of what your team will be developing using wireframes. No han
 
 
 Mock Ups
-![Alt text](/tuftsdev/comp20-f2016-team3/blob/master/GoJumboGoLanding.pdf?raw=true)
+![Alt Text](/GoJumboGoLanding.pdf?raw=true)
 
