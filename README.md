@@ -43,3 +43,4 @@ Mock Ups
 #Comments by Ming
 * Format of the proposal is hard to read
 * I generally like the idea.  From the mockups, it reminds me a lot of LOGO.  Have anyone ever used it?
+* Will you be using Google Maps?
