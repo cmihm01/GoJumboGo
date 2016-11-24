@@ -4,7 +4,6 @@ var game = new Phaser.Game(800,600,Phaser.AUTO, 'game_div');
 function preload() {
 
     game.stage.backgroundColor = '#85b5e1';
-
    
     game.load.crossOrigin = 'anonymous';
 
@@ -38,10 +37,13 @@ function create() {
     player = game.add.sprite(10, 550, 'player');
     player.scale.setTo(0.05,0.05);
 
-    game.physics.arcade.enable(player);
+    game.physics.enable(player, Phaser.Physics.ARCADE);
 
     player.body.collideWorldBounds = true;
     player.body.gravity.y = 0;
+    player.body.checkCollision.up = true;
+    player.body.checkCollision.down = true;
+    player.body.immovable = true;
     //player.body.gravity.x = 0;
 
     platforms = game.add.physicsGroup();
@@ -83,7 +85,7 @@ function create() {
 
 function update () {
 
-    game.physics.arcade.collide(player, platforms);
+    game.physics.arcade.collide(player, platform);
 
    // player.body.velocity.x = 0;
 
