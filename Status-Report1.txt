@@ -42,3 +42,6 @@ Goals:
 	and rendering those mazes in a phaser.io game window. In addition, animation
 	implementations will be solved including having jumbo recognize collisions
 	with objects, maze walls and the finish etc. 
+	
+#Comments by Ming
+* Keep up the good work.  Definitely focus more on the actual game.  Phaser is a lot of fun at times.
