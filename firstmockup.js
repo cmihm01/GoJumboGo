@@ -14,7 +14,8 @@ function preload() {
     game.load.image('left_button', 'left.png');
     game.load.image('right_button', 'right.png');
     game.load.image('go_button', 'go.png');
-
+    game.load.image('reset_button','reset.png')
+    game.load.image('add_button', 'add.png');
     //game.load.image('platform2', 'http://www.clker.com/cliparts/n/3/N/y/H/g/navy-blue-square.svg');
 }
 
@@ -40,7 +41,9 @@ var jumpButton;
 var directions = [];
 var buttons = [];
 var menu = [];
-
+var pressed = false;
+var x_start = 10;
+var y_start = 400;
 function create() {
     console.log("in create");
 
@@ -54,18 +57,15 @@ function create() {
 
     draw_grid(620,0);
    
-
-   
-
     player.scale.setTo(0.05,0.05);
 
     game.physics.enable(player, Phaser.Physics.ARCADE);
 
     player.body.collideWorldBounds = true;
-    player.body.gravity.y = 0;
-    player.body.checkCollision.up = true;
-    player.body.checkCollision.down = true;
-    player.body.immovable = true;
+   // player.body.gravity.y = 0;
+    //player.body.checkCollision.up = true;
+    //player.body.checkCollision.down = true;
+    //player.body.immovable = true;
     //player.body.gravity.x = 0;
   
     platforms = game.add.physicsGroup();
@@ -120,28 +120,77 @@ function make_buttons(){
     for (var i = 0; i < buttons.length; i++){
         buttons[i].btn.inputEnabled = true;
         buttons[i].btn.input.enableDrag(true);
+        buttons[i].btn.scale.setTo(0.8,0.8);
         menu[i] = 1; 
     }
-    go = game.add.button(500, button_y, 'go_button', actionOnClick);
-}
 
+    go = game.add.button(500, button_y, 'go_button', go_pressed);
+    go.inputEnabled = true;
+
+    reset = game.add.button(400, button_y, 'reset_button', reset);
+    reset.inputEnabled = true;
+
+    add = game.add.button(660, button_y + 50, 'add_button', add);
+    //go.events.onInputDown.add(doSomething);
+    
+}
+function go_pressed(){
+    pressed = true;
+}
+function reset(){
+    while(directions.length > 0){
+        directions[0].btn.destroy();
+        directions.splice(0,1);
+        player.x = x_start;
+        player.y = y_start;
+    }
+}
+function add(){
+    console.log('add');
+}
+function go_jumbo(){
+        player.x = x_start;
+        player.y = y_start;
+        directions.sort(function(obj1, obj2) {
+            return obj1.btn.y - obj2.btn.y;
+        });
+        for (var i = 0; i < directions.length; i++){
+            console.log(directions[i].direction);
+            if(directions[i].direction == 'up'){
+                player.body.y -= 100;
+            }
+            if(directions[i].direction == 'down'){
+                player.body.y += 100;
+            }
+            if(directions[i].direction == 'right'){
+                player.body.x += 100;
+            }
+            if(directions[i].direction == 'left'){
+                player.body.x -= 100;
+            }
+            //directions[i] = 0;
+        }
+        pressed = false;
+    }
 function update () {
     game.physics.arcade.collide(player, platforms);
 
    // player.body.velocity.x = 0;
-
-    // if (cursors.left.isDown)
-    // {
-    //     player.body.x += -5;
-    // }
+   if(pressed == true){
+        go_jumbo();
+   }
+    if (cursors.left.isDown)
+    {
+        player.body.x += -5;
+    }
     // else if (cursors.right.isDown)
     // {
     //     player.body.x += 5;
     // }
-    // else if (cursors.up.isDown)
-    // {
-    //     player.body.y -= 5;
-    // }
+    else if (cursors.up.isDown)
+    {
+        player.body.y -= 5;
+    }
     // else  if (cursors.down.isDown)
     // {
     //     player.body.y += 5;
@@ -151,7 +200,7 @@ function update () {
     // {
     //     player.body.velocity.y = -400;
     // }
-    
+ 
     if(game.input.mousePointer.isUp){
         for (var i = 0; i < buttons.length; i++){
         var check = i * 100;
@@ -162,10 +211,10 @@ function update () {
                // console.log(buttons[i].btn.x)
             }
             if (buttons[i].btn.x >= 620){
-                var dir = {direction:buttons[i].direction, yval: buttons[i].btn.y};
-                console.log(dir);
-                directions.push(dir);
-                console.log(directions[0]);
+                // var dir = {direction:buttons[i].direction, yval: buttons[i].btn.y};
+                // console.log(dir);
+                directions.push(buttons[i]);
+              //  console.log(directions[0]);
                 //console.log('mod: ' + i%4);
                 //console.log(dir_vals[buttons[i].direction]);
                menu [i] = 0;
@@ -175,37 +224,7 @@ function update () {
     }
     add_block();
 
-   // go.onInputDown.add(go_jumbo,this);
-
-}
-function actionOnClick(){
-   
-           console.log("Go!");
-
-    directions.sort(function(obj1, obj2) {
-    // Ascending: first age less than the previous
-        return obj1.yval - obj2.yval;
-    });
-    for (var i = 0; i < directions.length; i++){
-        console.log(directions[i].direction);
-        if(directions[i].direction == 'up'){
-            console.log('move up');
-            console.log(player.body.y);
-            player.body.y += 50;
-            console.log(player.body.y);
-        }
-        if(directions[i].direction == 'down'){
-            player.body.y -= 50;
-        }
-        if(directions[i].direction == 'right'){
-            player.body.x += 50;
-        }
-        if(directions[i].direction == 'left'){
-            player.body.x -= 50;
-        }
-    }
-
-}
+  }
 
 
 function draw_grid(x,y){
@@ -259,8 +278,9 @@ function add_block(){
     for(var i =0; i < menu.length; i++){
         if(menu[i] == 0){
             buttons[i] = {direction:dir_vals[i].direction, btn:game.add.sprite(dir_vals[i].num,button_y,dir_vals[i].img)};
+             buttons[i].btn.scale.setTo(0.8,0.8);
             buttons[i].btn.inputEnabled = true;
-        buttons[i].btn.input.enableDrag(true);
+            buttons[i].btn.input.enableDrag(true);
             menu[i] = 1;
         }
     }
