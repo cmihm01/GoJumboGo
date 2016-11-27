@@ -12,15 +12,95 @@
 </head>
 
 <body>
+
+  <!-- Boilerplate header with game title and navigation buttons -->
 	<div id = "header"> <h1> Go Jumbo Go! </h1>
     <button type="button" class="btn btn-default">Login</button>
     <button type="button" class="btn btn-default">Logout</button>
     <button type="button" class="btn btn-default">Sign Up!</button>
 
+
+    <!-- Parent Panel - Contains panel for login and panel for signup -->
+    <div id = "masterLogin">
     <div class="panel panel-default">
   		<div class="panel-heading">Login or Sign Up!</div>
-  		<div class="panel-body">Heres where you can login you rock</div>
-  	</div>
-</div>
+  		  <div class="panel-body">
+  			   <div class="row">
+
+            <!-- LOGIN PANEL WITH INPUT FORMS --> 
+  				    <div class="col-md-4">
+  					   <div class="panel panel-default">
+             			<div class="panel-heading">Login</div>
+
+                	<div class="container">
+                  <div class="row">
+                    <div class="Absolute-Center is-Responsive">
+                      <div class="col-sm-12 col-md-10 col-md-offset-1">
+                        <form action="" id="loginForm">
+                          <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" type="text" name='username' placeholder="username"/>          
+                          </div>
+                          <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input class="form-control" type="password" name='password' placeholder="password"/>     
+                          </div>
+                          <div class="form-group">
+                            <button type="button" class="btn btn-def btn-block">Login</button>
+                          </div>
+                          <div class="form-group text-center">
+                            <a href="#">Forgot Password</a>
+                          </div>
+                          </form>        
+                        </div>  
+                      </div>    
+                    </div>
+                  </div>
+                 </div>
+                </div>
+
+            <!-- SINGUP PANEL WITH INPUT FORMS --> 
+            <div class="col-md-4">
+  					<div class="panel panel-default">
+             		<div class="panel-heading">Sign Up</div>
+                <div class="container">
+                  <div class="row">
+                    <div class="Absolute-Center is-Responsive">
+                      <div class="col-sm-12 col-md-10 col-md-offset-1">
+                        <form action="" id="loginForm">
+                          <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" type="text" name='username' placeholder="username"/>          
+                          </div>
+                          <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input class="form-control" type="password" name='password' placeholder="password"/>     
+                          </div>
+                          <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input class="form-control" type="email" name='email' placeholder="email address"/>     
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox"> I agree to the <a href="conditions.html">Terms and Conditions</a>
+                            </label>
+                          </div>
+                          <div class="form-group">
+                            <button type="button" class="btn btn-def btn-block">Sign Me Up!</button>
+                          </div>
+                          <div class="form-group text-center">
+                            <a href="#">Help</a>
+                          </div>
+                        </form>        
+                      </div>  
+                    </div>    
+                  </div>
+                </div>
+            </div>
+  		    </div>
+  	   </div>
+     </div>
+    </div>
+  </div>
 </body>
 </html>
