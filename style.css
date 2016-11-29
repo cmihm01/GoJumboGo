@@ -2,6 +2,24 @@
 	width: 800px;
 	height: 600px;
 	font-family: 'Luckiest Guy', cursive;
+	background-color: #99ccff;
+}
+
+.navbar-brand {
+	font-family: 'Luckiest Guy', cursive;
+	color: black;
+	font-size: xx-large;
+}
+.navbar-item {
+	font-family: 'Luckiest Guy', cursive;
+	color: black;
+	font-size: xx-large;
+}
+
+.logo {
+	height: 40px;
+	width: 40px;
+	padding-left: 7px;
 }
 
 #header {
@@ -12,9 +30,17 @@ div.well{
   height: 250px;
 } 
 
-/*#masterLogin {
-	width: 75%;
-}*/
+body {
+  padding-top: 5rem;
+  background-color: #29a329;
+  margin-bottom: 30px;
+  background-image: url(bg.png);
+}
+
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
 
 
 .Absolute-Center.is-Responsive {
@@ -24,4 +50,5 @@ div.well{
   max-width: 400px;
   padding: 40px;
 }
+
 
