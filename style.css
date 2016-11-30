@@ -1,6 +1,7 @@
 #game_div{
 	width: 800px;
 	height: 600px;
+	margin: 0 auto;
 	font-family: 'Luckiest Guy', cursive;
 	background-color: #99ccff;
 }
@@ -14,6 +15,16 @@
 	font-family: 'Luckiest Guy', cursive;
 	color: black;
 	font-size: xx-large;
+}
+
+
+#masterLogin {
+	margin: 0 auto;
+	width: 60%;
+}
+
+a {
+	color: black;
 }
 
 .logo {
@@ -34,7 +45,7 @@ body {
   padding-top: 5rem;
   background-color: #29a329;
   margin-bottom: 30px;
-  background-image: url(bg.png);
+  background-image: url(img/bg.png);
 }
 
 .starter-template {
