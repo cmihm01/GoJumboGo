@@ -7,15 +7,15 @@ function preload() {
    
     game.load.crossOrigin = 'anonymous';
 
-    game.load.image('player', 'jumbo.png');
-    game.load.image('platform', 'rect.png');
-    game.load.image('up_button', 'up.png');
-    game.load.image('down_button', 'down.png');
-    game.load.image('left_button', 'left.png');
-    game.load.image('right_button', 'right.png');
-    game.load.image('go_button', 'go.png');
-    game.load.image('reset_button','reset.png')
-    game.load.image('add_button', 'add.png');
+    game.load.image('player', 'img/jumbo.png');
+    game.load.image('platform', 'img/rect.png');
+    game.load.image('up_button', 'img/up.png');
+    game.load.image('down_button', 'img/down.png');
+    game.load.image('left_button', 'img/left.png');
+    game.load.image('right_button', 'img/right.png');
+    game.load.image('go_button', 'img/go.png');
+    game.load.image('reset_button','img/reset.png')
+    game.load.image('add_button', 'img/add.png');
     //game.load.image('platform2', 'http://www.clker.com/cliparts/n/3/N/y/H/g/navy-blue-square.svg');
 }
 
