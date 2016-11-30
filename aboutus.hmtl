@@ -24,7 +24,7 @@
           <a class="nav-link" href="#"> Play! <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="aboutus.html">About GoJumboGo!</a>
+          <a class="nav-link" href="#">About GoJumboGo!</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="loginpage.html">Login or Signup</a>
@@ -33,7 +33,7 @@
     </nav>
     
     <div class="center-block">  
-	     <div id = "game_div"> </div>
+	     <p> Hey there, this is our game. Hope you like it! </p>
     </div>
 </div>
 </body>
