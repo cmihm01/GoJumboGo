@@ -6,11 +6,11 @@
 	background-color: #99ccff;
 }
 
-.navbar-brand {
+/*.navbar-brand {
 	font-family: 'Luckiest Guy', cursive;
 	color: black;
 	font-size: xx-large;
-}
+}*/
 .navbar-item {
 	font-family: 'Luckiest Guy', cursive;
 	color: black;
@@ -19,6 +19,11 @@
 
 .panel-heading {
 	font-size: 20px;
+}
+
+.my-signin2 {
+	margin: 0 auto;
+	width: 60%;
 }
 
 .col-md-7 {
@@ -47,6 +52,12 @@
 
 a {
 	color: black;
+}
+
+.navbar-inverse .navbar-brand {
+	font-family: 'Luckiest Guy', cursive;
+	font-size: xx-large;
+    color: white;
 }
 
 .logo {
