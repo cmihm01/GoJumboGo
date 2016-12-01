@@ -50,6 +50,11 @@
 	width: 60%;
 }
 
+#username {
+	margin-right: 50px;
+	color: red;
+}
+
 a {
 	color: black;
 }
