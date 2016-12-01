@@ -34,45 +34,23 @@
   <!-- Boilerplate header with game title and navigation buttons -->
 	<div id = "header"> 
 
-
-    <!-- Parent Panel - Contains panel for login and panel for signup -->
-    <div id = "masterLogin">
-    <div class="panel panel-default">
-  		<div class="panel-heading">Login or Sign Up!</div>
-  		  <div class="panel-body">
+<div id = "jumbo-center">
+   <div class="jumbotron">
+      <h1 class="display-3">Login or Sign Up!</h1>
+      <div class="panel panel-default">
+        <div class="panel-body">
            <p class = "info-blurb"> With GoJumboGo learning the basics of computer programming is a breeze!
                Keep track of your progress and get updates by creating an account with
                us! </p>
-  			   <div class="row">
+           <div class="row">
+            <div class="col-md-4">
+               <div class="panel panel-default">
+                  <div class="panel-heading">Login</div>
 
-            <!-- LOGIN PANEL WITH INPUT FORMS --> 
-  				    <div class="col-md-4">
-  					   <div class="panel panel-default">
-             			<div class="panel-heading">Login</div>
-
-                	<div class="container">
+                  <div class="container">
                   <div class="row">
                     <div class="Absolute-Center is-Responsive">
-                      <!--<div class="col-sm-12 col-md-10 col-md-offset-1">
-                         <form action="" id="loginForm">
-                          <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input class="form-control" type="text" name='username' placeholder="username"/>          
-                          </div>
-                          <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input class="form-control" type="password" name='password' placeholder="password"/>     
-                          </div>
-                          <div class="form-group">
-                            <button type="button" class="btn btn-def btn-block">Login</button>
-                          </div>
-                          <div class="form-group text-center">
-                            <a href="#">Forgot Password</a>
-                          </div>
-                          </form>        
-                        </div> --> 
-
-                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                      <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
                           <script>
                             function onSignIn(googleUser) {
                               // Useful data for your client-side scripts:
@@ -94,49 +72,28 @@
                   </div>
                  </div>
                 </div>
+          <div class="col-md-7">
+          <div class = "login-panel">
+          <form class="form-horizontal">
+          <fieldset>
 
-            <!-- SINGUP PANEL WITH INPUT FORMS --> 
-            <!--<div class="col-md-4">
-  					<div class="panel panel-default">
-             		<div class="panel-heading">Sign Up</div>
-                <div class="container">
-                  <div class="row">
-                    <div class="Absolute-Center is-Responsive">
-                      <div class="col-sm-12 col-md-10 col-md-offset-1">
-                        <form action="" id="loginForm">
-                          <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input class="form-control" type="text" name='username' placeholder="username"/>          
-                          </div>
-                          <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input class="form-control" type="password" name='password' placeholder="password"/>     
-                          </div>
-                          <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input class="form-control" type="email" name='email' placeholder="email address"/>     
-                          </div>
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> I agree to the <a href="conditions.html">Terms and Conditions</a>
-                            </label>
-                          </div>
-                          <div class="form-group">
-                            <button type="button" class="btn btn-def btn-block">Sign Me Up!</button>
-                          </div>
-                          <div class="form-group text-center">
-                            <a href="#">Help</a>
-                          </div>
-                        </form>        
-                      </div>  
-                    </div>    
-                  </div>
-                </div>
-            </div>
-  		    </div> -->
-  	   </div>
-     </div>
-    </div>
+          <input id="textinput" name="textinput" type="text" placeholder="Enter User Name" class="form-control input-md">
+          <div class="spacing"><input type="checkbox" name="checkboxes" id="checkboxes-0" value="1"><small> Remember me</small></div>
+          <input id="textinput" name="textinput" type="text" placeholder="Enter Password" class="form-control input-md">
+          <div class="spacing"><a href="#"><small> Forgot Password?</small></a><br/></div>
+          <button id="singlebutton" name="singlebutton" class="btn btn-info btn-sm pull-right">Sign In</button>
+
+
+        </fieldset>
+        </form>
+      </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
   </div>
+    </div>
+
 </body>
 </html>

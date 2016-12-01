@@ -21,6 +21,24 @@
 	font-size: 20px;
 }
 
+.col-md-7 {
+	border-left:1px solid #ccc;
+	height:160px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#jumbo-center {
+	font-family: 'Luckiest Guy', cursive;
+	text-align: center;
+	margin: 0 auto;
+	width: 60%;
+}
+
+.about-info {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
 
 #masterLogin {
 	margin: 0 auto;
