@@ -9,8 +9,12 @@ app.use(express.static(__dirname + '/public'));
 //app.set('views', __dirname + '/views');
 //app.set('view engine', 'ejs');
 
+app.set('views', __dirname + '/views');
+app.engine('html', engines.mustache);
+app.set('view engine', 'html');
+
 app.get('/', function(request, response) {
-  response.render('index.html');
+  response.render('pages/index.html');
 });
 
 app.listen(app.get('port'), function() {
