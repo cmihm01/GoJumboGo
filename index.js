@@ -14,6 +14,7 @@ app.use(express.static(__dirname + '/public'));
 //app.set('view engine', 'html');
 
 app.get('/', function(request, response) {
+  console.log("hello this is me and this is what you want : " + __dirname);
   response.sendFile(path.join(__dirname + '/index.html'))
 });
 
