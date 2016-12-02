@@ -10,7 +10,6 @@ app.use(express.static(__dirname + '/public'));
 //app.set('view engine', 'ejs');
 
 app.set('views', __dirname + '/views');
-app.engine('html', engines.mustache);
 app.set('view engine', 'html');
 
 app.get('/', function(request, response) {
