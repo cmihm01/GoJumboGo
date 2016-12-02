@@ -9,6 +9,10 @@ app.use(express.static(__dirname + '/public'));
 //app.use("/scripts", express.static(__dirname + '/public/javascripts'));
 app.use("/img",  express.static(__dirname + '/img'));
 
+server.configure(function(){
+	server.use(express.static(__dirname))
+});
+
 // views is directory for all template files
 //app.set('views', __dirname + '/views');
 //app.set('view engine', 'ejs');
