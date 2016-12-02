@@ -1,0 +1,43 @@
+Accomplished:
+	So far, most of our accomplishments have been design-focused, working on 
+	understanding how our project will fit together and how the various parts
+	will interact. We have begun to create a scaffolding of the game, and have 
+	a much stronger grasp of the moving parts and various aspects our game will
+	need. The following items are the major accomplishments thus far:
+	-Learned Phaser.io 
+	-Delegated responsibilities 
+		-specifically outlined tasks
+		-set deadlines for completing next phases
+	-Thought through implementation of translating blocks into game-state changes
+	-Created a maze
+	-Rendered jumbo 
+
+Challenges:
+	The largest challenge has been moving from concepts to executable ideas. 
+	First, we spent significant time solidifying our conceptual vision, and 
+	then walked through that and created an entire document of bulleted action 
+	items. We then categorized these, and delegated a category to each team 
+	member. This will continue to be a challenge moving forward, as we run into 
+	more specifics that we will need in order to implement our vision. Another 
+	challenge we ran into is understanding how to incorporate Google’s mail 
+	and login API’s into our game. 
+
+Goals:
+	Since we divided up the tasks to be completed between team members, each 
+	team member has a different goal to accomplish by the end of Thanksgiving 
+	Break in their area of the game. Katie will work on the game homepage, and
+	create an html page that renders a phaser window for the gameplay and has 
+	the appropriate buttons, that may not be functional yet, except for the 
+	login/signup button, which will open a new page where the login will 
+	eventually be. In addition, Katie will look into the Google API for login
+	as well as the Gmail API and begin thinking about how that will fit into 
+	the game. 
+	Claudia will be working on the action blocks, creating the action block 
+	objects themselves and their functionality (click and drag, fitting them
+	together in an action block list). In addition, blocks will be able to be 
+	translated into an array of command which can then be translated to commands
+	that allow jumbo to move in the maze. 
+	Jenny will be working on designing mazes, both with and without obstacles, 
+	and rendering those mazes in a phaser.io game window. In addition, animation
+	implementations will be solved including having jumbo recognize collisions
+	with objects, maze walls and the finish etc. 
