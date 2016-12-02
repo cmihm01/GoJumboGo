@@ -10,8 +10,8 @@ app.use(express.static(__dirname + '/public'));
 //app.set('views', __dirname + '/views');
 //app.set('view engine', 'ejs');
 
-app.set('views', __dirname + '/views');
-app.set('view engine', 'html');
+//app.set('views', __dirname + '/views');
+//app.set('view engine', 'html');
 
 app.get('/', function(request, response) {
   response.sendFile(path.join(__dirname + '/index.html'))
