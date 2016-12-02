@@ -1,19 +1,68 @@
 #game_div{
 	width: 800px;
 	height: 600px;
+	margin: 0 auto;
 	font-family: 'Luckiest Guy', cursive;
 	background-color: #99ccff;
 }
 
-.navbar-brand {
+/*.navbar-brand {
 	font-family: 'Luckiest Guy', cursive;
 	color: black;
 	font-size: xx-large;
-}
+}*/
 .navbar-item {
 	font-family: 'Luckiest Guy', cursive;
 	color: black;
 	font-size: xx-large;
+}
+
+.panel-heading {
+	font-size: 20px;
+}
+
+.my-signin2 {
+	margin: 0 auto;
+	width: 60%;
+}
+
+.col-md-7 {
+	border-left:1px solid #ccc;
+	height:160px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#jumbo-center {
+	font-family: 'Luckiest Guy', cursive;
+	text-align: center;
+	margin: 0 auto;
+	width: 60%;
+}
+
+.about-info {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+#masterLogin {
+	margin: 0 auto;
+	width: 60%;
+}
+
+#username {
+	margin-right: 50px;
+	color: red;
+}
+
+a {
+	color: black;
+}
+
+.navbar-inverse .navbar-brand {
+	font-family: 'Luckiest Guy', cursive;
+	font-size: xx-large;
+    color: white;
 }
 
 .logo {
@@ -34,7 +83,7 @@ body {
   padding-top: 5rem;
   background-color: #29a329;
   margin-bottom: 30px;
-  background-image: url(bg.png);
+  background-image: url(img/bg.png);
 }
 
 .starter-template {
@@ -49,6 +98,11 @@ body {
   min-width: 200px;
   max-width: 400px;
   padding: 40px;
+}
+
+.info-blurb {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
 }
 
 
