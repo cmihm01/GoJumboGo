@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var path = require('path');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -13,7 +14,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
 
 app.get('/', function(request, response) {
-  response.render('pages/index.html');
+  res.sendFile(path.join(__dirname + '/index.html'))
 });
 
 app.listen(app.get('port'), function() {
