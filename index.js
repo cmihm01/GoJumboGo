@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-var server = express.createServer();
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -9,10 +8,6 @@ app.use(express.static(__dirname + '/public'));
 //app.use("/styles",  express.static(__dirname + '/public/stylesheets'));
 //app.use("/scripts", express.static(__dirname + '/public/javascripts'));
 app.use("/img",  express.static(__dirname + '/img'));
-
-server.configure(function(){
-	server.use(express.static(__dirname))
-});
 
 // views is directory for all template files
 //app.set('views', __dirname + '/views');
