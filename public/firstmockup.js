@@ -184,27 +184,6 @@ function update () {
    if(pressed == true){
         go_jumbo();
    }
-    if (cursors.left.isDown)
-    {
-        player.body.x += -5;
-    }
-    // else if (cursors.right.isDown)
-    // {
-    //     player.body.x += 5;
-    // }
-    else if (cursors.up.isDown)
-    {
-        player.body.y -= 5;
-    }
-    // else  if (cursors.down.isDown)
-    // {
-    //     player.body.y += 5;
-    // }
-
-    // if (jumpButton.isDown && (player.body.onFloor() || player.body.touching.down))
-    // {
-    //     player.body.velocity.y = -400;
-    // }
  
     if(game.input.mousePointer.isUp){
         for (var i = 0; i < buttons.length; i++){
