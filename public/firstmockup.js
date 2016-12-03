@@ -33,6 +33,9 @@ function init_game(){
 
 	game.state.add('main', game_state.main);
 	game.state.start('main');
+
+    var user_indicator = document.getElementById("username");
+    user_indicator.innerHTML = "here is my name";
 }
 var player;
 var platforms;
