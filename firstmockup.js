@@ -16,6 +16,7 @@ function preload() {
     game.load.image('go_button', 'img/go.png');
     game.load.image('reset_button','img/reset.png')
     game.load.image('add_button', 'img/add.png');
+    game.load.image('book', '/img/book.png');
     //game.load.image('platform2', 'http://www.clker.com/cliparts/n/3/N/y/H/g/navy-blue-square.svg');
 }
 
@@ -48,6 +49,9 @@ function create() {
     console.log("in create");
 
     player = game.add.sprite(10, 400, 'player');
+
+    book = game.add.sprite(400,400,'book');
+    book.scale.setTo(0.1,0.1);
 
     make_buttons();
 
@@ -222,6 +226,12 @@ function update () {
             }
         }
     }
+    if(player.x < book.x +100 && player.x > book.x -100){
+        if (player.y < book.y + 100 && player.y > book.y - 100){
+            console.log('touching');
+        }
+    }
+    
     add_block();
 
   }
