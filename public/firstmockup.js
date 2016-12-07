@@ -230,7 +230,7 @@ function draw_grid(x,y){
     }
 }
 function draw_rect(x,y){
-     graphics = game.add.graphics(0, 0);
+    graphics = game.add.graphics(0, 0);
     graphics.beginFill(0xFF3300);
     graphics.lineStyle(10, 0xffd900, 1);
     
