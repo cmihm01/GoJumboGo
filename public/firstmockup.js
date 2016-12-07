@@ -263,7 +263,7 @@ function update () {
 //        }
 //    }
 
-=
+
  
         game.physics.arcade.overlap(player, book, overlapHandler, null, this)
 
