@@ -34,6 +34,7 @@ function init_game(){
 
 	game.state.add('main', game_state.main);
 	game.state.start('main');
+
 }
 var player;
 var platforms;

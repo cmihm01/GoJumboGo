@@ -9,15 +9,21 @@
 	<script type= "text/javascript" src = "firstmockup.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel ="stylesheet" href ="style.css"/> 
+  <link rel ="stylesheet" href ="/stylesheets/style.css"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 </head>
 
 <body onload='init_game()'>
-	<nav class="navbar navbar-fixed-top navbar-inverse">
-	  <a href="#" class="navbar-left"> <img class="logo" src="img/jumbo.png"> </a>
+	<nav class="navbar navbar-fixed-top navbar-inverse" onload='show_user_info()'>
+    <script>
+      function show_user_info() {
+        var user_indicator = document.getElementById("username");
+        user_indicator.innerHTML = "here is my name";
+      }
+    </script>
+	  <a href="#" class="navbar-left"> <img class="logo" src="/img/jumbo.png"> </a>
       <a class="navbar-brand" href="index.html">GoJumboGo!</a>
       <ul class="nav navbar-nav">
         <li class="nav-item active">
@@ -30,8 +36,7 @@
           <a class="nav-link" href="loginpage.html">Login or Signup</a>
         </li>
       </ul>
-      <p class="navbar-text navbar-right">Signed in as Mark Otto</p>
-      <button type="button" class="btn btn-default navbar-btn navbar-right">Sign Out</button>
+      <div class="navbar-text navbar-right">Signed in as </p> <p id="username"></p>
     </nav>
     
     <div class="center-block">  
