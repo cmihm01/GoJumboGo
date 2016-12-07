@@ -16,7 +16,17 @@
   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 </head>
 
-<body>
+<body onload='show_user_info()'>
+  <script>
+      function show_user_info() {
+        var username = "not logged in :("
+        if (localStorage.user) {
+            username = localStorage.user;
+        }
+        var user_indicator = document.getElementById("username");
+        user_indicator.innerHTML = username;
+      }
+    </script>
   <nav class="navbar navbar-fixed-top navbar-inverse">
 	  <a href="#" class="navbar-left"> <img class="logo" src="img/jumbo.png"> </a>
       <a class="navbar-brand" href="index.html">GoJumboGo!</a>
@@ -38,7 +48,7 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><p id="logged-in-as">Signed In As: </p><p id="username"></p></li>
+        <li><p id="logged-in-as">Hey! Looks like you are </p><p id="username"></p></li>
         <li role="separator" class="divider"></li>
         <li><a href="#">Logout</a></li>
       </ul>

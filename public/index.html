@@ -19,7 +19,7 @@
 	<nav class="navbar navbar-fixed-top navbar-inverse">
     <script>
       function show_user_info() {
-        var username = "You are not logged in"
+        var username = "not logged in :("
         if (localStorage.user) {
             username = localStorage.user;
         }
@@ -47,7 +47,7 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><p id="logged-in-as">Signed In As: </p><p id="username"></p></li>
+        <li><p id="logged-in-as">Hey! Looks like you are </p><p id="username"></p></li>
         <li role="separator" class="divider"></li>
         <li><a href="#">Logout</a></li>
       </ul>
