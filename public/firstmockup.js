@@ -266,21 +266,9 @@ function update () {
         }
     }
 
-
-//    game.physics.arcade.overlap(player, book, overlapHandler1, null, this);
-    game.physics.arcade.overlap(player, platform, overlapHandler2, null, this);
-
-  add_block();
+    add_block();
 
   }
-
-//function overlapHandler1 (obj1, obj2) {
-//    window.alert("You helped Jumbo get to the library! Hooray!");
-//}
-
-function overlapHandler2 (obj1, obj2) {
-    window.alert("Oh no! Jumbo walked into a wall!");
-}
 
 
 
@@ -324,7 +312,7 @@ function draw_rect(x,y){
 
 }
 function draw_border(){
-     graphics = game.add.graphics(0, 0);
+    graphics = game.add.graphics(0, 0);
     //   draw border
     graphics.lineStyle(10, 0xffffff, 1);
     graphics.moveTo(0,0);
