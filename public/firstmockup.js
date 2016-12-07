@@ -178,7 +178,7 @@ function go_jumbo(){
         pressed = false;
     }
 function update () {
-    game.physics.arcade.collide(player, platforms);
+    //game.physics.arcade.collide(player, platforms);
 
    // player.body.velocity.x = 0;
    if(pressed == true){
@@ -208,7 +208,8 @@ function update () {
     }
     if(player.x < book.x +100 && player.x > book.x -100){
         if (player.y < book.y + 100 && player.y > book.y - 100){
-            console.log('touching');
+            window.alert("You helped Jumbo get to the library! Hooray!");
+            reset();
         }
     }
     
