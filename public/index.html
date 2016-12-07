@@ -26,6 +26,13 @@
         var user_indicator = document.getElementById("username");
         user_indicator.innerHTML = username;
       }
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          var user_indicator = document.getElementById("username");
+          user_indicator.innerHTML = "not logged in :(";
+        });
+      }
     </script>
 	  <a href="#" class="navbar-left"> <img class="logo" src="/img/jumbo.png"> </a>
       <a class="navbar-brand" href="index.html">GoJumboGo!</a>
@@ -49,7 +56,7 @@
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
         <li><p id="logged-in-as">Hey! Looks like you are </p><p id="username"></p></li>
         <li role="separator" class="divider"></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="#" onclick="signOut();" >Logout</a></li>
       </ul>
     </div>
     </nav>
