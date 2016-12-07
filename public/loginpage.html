@@ -68,7 +68,7 @@
                       console.log('Logged in as: ' + username);
                       var user_indicator = document.getElementById("username");
                       user_indicator.innerHTML = username;
-                      localStorage.user = username;
+                      sessionStorage.setItem('user',username);
 
                     }
                     function onFailure(error) {
@@ -97,12 +97,14 @@
                               $(this).remove(); 
                           });
                       }, 50);
+                      sessionStorage.clear();
+                      location.reload();
                     }
                      function show_user_info() {
                         $("#success-alert").hide();
                         var username = "not logged in :("
-                        if (localStorage.user) {
-                            username = localStorage.user;
+                        if(sessionStorage.getItem('myUserEntity') != null){
+                            username = sessionStorage.getItem('user');
                         }
                         var user_indicator = document.getElementById("username");
                         user_indicator.innerHTML = username;
