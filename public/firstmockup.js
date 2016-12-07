@@ -206,10 +206,15 @@ function update () {
             }
         }
     }
-    if(player.x < book.x +100 && player.x > book.x -100){
-        if (player.y < book.y + 100 && player.y > book.y - 100){
+//    if(player.x < book.x +100 && player.x > book.x -100){
+//        if (player.y < book.y + 100 && player.y > book.y - 100){
+//            window.alert("You helped Jumbo get to the library! Hooray!");
+//        }
+//    }
+
+    if(player.x == book.x && player.x == book.x){
+        if (player.y == book.y && player.y == book.y){
             window.alert("You helped Jumbo get to the library! Hooray!");
-            reset();
         }
     }
     
