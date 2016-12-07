@@ -212,15 +212,21 @@ function update () {
 //        }
 //    }
 
-    if(player.x == book.x && player.x == book.x){
-        if (player.y == book.y && player.y == book.y){
-            window.alert("You helped Jumbo get to the library! Hooray!");
-        }
-    }
+//    if(player.x == book.x && player.x == book.x){
+//        if (player.y == book.y && player.y == book.y){
+//            window.alert("You helped Jumbo get to the library! Hooray!");
+//        }
+//    }
+
+    game.physics.arcade.overlap(player, book, overlapHandler, null, this)
     
     add_block();
 
   }
+
+function overlapHandler (obj1, obj2) {
+    window.alert("You helped Jumbo get to the library! Hooray!");
+}
 
 
 function draw_grid(x,y){
