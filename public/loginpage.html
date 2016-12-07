@@ -14,7 +14,12 @@
   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 </head>
 
-<body>
+<body onload="show_user_info()">
+  <div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong> See you later! </strong>
+    You have been successfully logged out.
+</div>
   <nav class="navbar navbar-fixed-top navbar-inverse">
     <a href="index.html" class="navbar-left"> <img class="logo" src="img/jumbo.png"> </a>
       <a class="navbar-brand" href="index.html">GoJumboGo!</a>
@@ -38,7 +43,7 @@
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
         <li><p id="logged-in-as">Signed In As: </p><p id="username"></p></li>
         <li role="separator" class="divider"></li>
-        <li><a href="#" onclick="signOut();" >Logout</a></li>
+        <li><a id="logout-button" href="#" onclick="signOut();" >Logout</a></li>
       </ul>
     </div>
     </nav>
@@ -63,7 +68,7 @@
                       console.log('Logged in as: ' + username);
                       var user_indicator = document.getElementById("username");
                       user_indicator.innerHTML = username;
-                      localStorage.user = username;
+                      sessionStorage.setItem('user',username);
 
                     }
                     function onFailure(error) {
@@ -86,7 +91,24 @@
                         var user_indicator = document.getElementById("username");
                         user_indicator.innerHTML = "not logged in :(";
                       });
+                      $("#success-alert").show();
+                      window.setTimeout(function() {
+                          $("success-alert").fadeTo(500, 0).slideUp(500, function(){
+                              $(this).remove(); 
+                          });
+                      }, 50);
+                      sessionStorage.clear();
+                      location.reload();
                     }
+                     function show_user_info() {
+                        $("#success-alert").hide();
+                        var username = "not logged in :("
+                        if(sessionStorage.getItem('myUserEntity') != null){
+                            username = sessionStorage.getItem('user');
+                        }
+                        var user_indicator = document.getElementById("username");
+                        user_indicator.innerHTML = username;
+                      }
                   </script>
 
                   <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>

@@ -20,8 +20,8 @@
   <script>
       function show_user_info() {
         var username = "not logged in :("
-        if (localStorage.user) {
-            username = localStorage.user;
+        if(sessionStorage.getItem('myUserEntity') != null){
+            username = sessionStorage.getItem('user');
         }
         var user_indicator = document.getElementById("username");
         user_indicator.innerHTML = username;
