@@ -5,11 +5,16 @@ if(window.innerWidth <= 800 && window.innerHeight <= 600){
     mobile = true;
     height = 300;
     width = 400;
+    x_start=10;
+    y_start=300;
+
 }
 else{
     mobile = false;
      height = 600;
     width = 800;
+    x_start=10;
+    y_start=400;
 }
 
 var game = new Phaser.Game(width,height,Phaser.AUTO, 'game_div');
@@ -58,16 +63,20 @@ var directions = [];
 var buttons = [];
 var menu = [];
 var pressed = false;
-var x_start = 10;
-var y_start = 400;
+var x_start;
+var y_start;
 function create() {
     console.log("in create");
 
     player = game.add.sprite(10, height-200, 'player');
 
-    book = game.add.sprite(width/2,height-200,'book');
-    book.scale.setTo(0.1,0.1);
-
+    book = game.add.sprite(width/2+15,height-200,'book');
+    if(!mobile){
+        book.scale.setTo(0.1,0.1);  
+    }
+    else{
+        book.scale.setTo(0.08,0.08);
+    }
     make_buttons();
 
     draw_border();
@@ -154,16 +163,28 @@ function make_buttons(){
         }
         menu[i] = 1; 
     }
+    if(!mobile){
+        go = game.add.button(500, button_y, 'go_button', go_pressed);
+        go.inputEnabled = true;
 
-    go = game.add.button(500, button_y, 'go_button', go_pressed);
-    go.inputEnabled = true;
+        reset = game.add.button(400, button_y, 'reset_button', reset);
+        reset.inputEnabled = true;
 
-    reset = game.add.button(400, button_y, 'reset_button', reset);
-    reset.inputEnabled = true;
+        add = game.add.button(660, button_y + 50, 'add_button', add);
+        //go.events.onInputDown.add(doSomething);
+    }
+    else if(mobile){
+        go = game.add.button(270, button_y, 'go_button', go_pressed);
+        go.inputEnabled = true;
+        go.scale.setTo(0.6,0.6);
 
-    add = game.add.button(660, button_y + 50, 'add_button', add);
-    //go.events.onInputDown.add(doSomething);
-    
+        reset = game.add.button(200, button_y, 'reset_button', reset);
+        reset.inputEnabled = true;
+        reset.scale.setTo(0.6,0.6);
+
+        //add = game.add.button(550, button_y + 50, 'add_button', add);
+        //go.events.onInputDown.add(doSomething);
+    }
 }
 function go_pressed(){
     pressed = true;
@@ -219,7 +240,7 @@ function update () {
         else{
             check = i*50;
         }
-            if (buttons[i].btn.x != check && !game.input.mousePointer.isDown && buttons[i].btn.x < 620){
+            if (buttons[i].btn.x != check && !game.input.mousePointer.isDown && buttons[i].btn.x < width-180){
                 buttons[i].btn.x = check;
                 buttons[i].btn.y = button_y;
                // console.log(buttons[i].btn.x)
@@ -242,14 +263,15 @@ function update () {
 //        }
 //    }
 
-//    if(player.x == book.x && player.x == book.x){
-//        if (player.y == book.y && player.y == book.y){
-//            window.alert("You helped Jumbo get to the library! Hooray!");
-//        }
-//    }
 
+<<<<<<< HEAD
     game.physics.arcade.overlap(player, book, overlapHandler1, null, this);
     game.physics.arcade.overlap(player, platform, overlapHandler2, null, this);
+=======
+ 
+        game.physics.arcade.overlap(player, book, overlapHandler, null, this)
+
+>>>>>>> 88ba1ac1a11a526e8dca7dcc1ca8684cc25a017a
     
     add_block();
 
@@ -264,15 +286,29 @@ function overlapHandler2 (obj1, obj2) {
 }
 
 
+
 function draw_grid(x,y){
-    while(y < height-100){
-        graphics.lineStyle(10, 0xffffff, 1);
-        graphics.moveTo(x,y);
-        graphics.lineTo(x+100, y);
-        graphics.lineTo(x+100, y+80);
-        graphics.lineTo(x, y+80);
-        graphics.lineTo(x,y);
-        y+=80;
+    if(!mobile){
+        while(y < height-100){
+            graphics.lineStyle(10, 0xffffff, 1);
+            graphics.moveTo(x,y);
+            graphics.lineTo(x+100, y);
+            graphics.lineTo(x+100, y+80);
+            graphics.lineTo(x, y+80);
+            graphics.lineTo(x,y);
+            y+=80;
+        }
+    }
+    if(mobile){
+        while(y < height-100){
+            graphics.lineStyle(10, 0xffffff, 1);
+            graphics.moveTo(x,y);
+            graphics.lineTo(x+50, y);
+            graphics.lineTo(x+50, y+40);
+            graphics.lineTo(x, y+40);
+            graphics.lineTo(x,y);
+            y+=40;
+        }
     }
 }
 function draw_rect(x,y){

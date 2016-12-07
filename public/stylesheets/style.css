@@ -4,11 +4,15 @@
 		width:800;
 		height:600;
     }
+
 }
 @media screen and (max-width: 800px) {
     #game_div {
 		width:400;
 		height:300;
+    }
+     .navbar-brand, .navbar-right, .navbar-left{
+    	display:none;
     }
 }
 
@@ -26,8 +30,12 @@
 	font-size: xx-large;
 }
 
+/*.dropdown-right {
+	margin-right: 15px;
+}*/
+
 .navbar-right {
-	margin-right: 0;
+	margin: 15px;
 }
 
 #logged-in-as {
@@ -35,9 +43,9 @@
     font-style: italic;
 }
 
-.btn-success {
-	margin: 10px;
-}
+/*.btn-success {
+	margin: 15px;
+} */
 
 .panel-heading {
 	font-size: 20px;
@@ -73,8 +81,9 @@
 }
 
 #username {
+	padding-left: 10px;
 	margin-right: 50px;
-	color: red;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 a {

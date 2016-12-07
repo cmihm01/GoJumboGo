@@ -19,12 +19,20 @@
 	<nav class="navbar navbar-fixed-top navbar-inverse">
     <script>
       function show_user_info() {
-        var username = "You are not logged in"
-        if (localStorage.user) {
-            username = localStorage.user;
+        var username = "not logged in :("
+        if(sessionStorage.getItem('myUserEntity') != null){
+            username = sessionStorage.getItem('user');
         }
         var user_indicator = document.getElementById("username");
         user_indicator.innerHTML = username;
+        console.log(username);
+      }
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          var user_indicator = document.getElementById("username");
+          user_indicator.innerHTML = "not logged in :(";
+        });
       }
     </script>
 	  <a href="#" class="navbar-left"> <img class="logo" src="/img/jumbo.png"> </a>
@@ -47,9 +55,9 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><p id="logged-in-as">Signed In As: </p><p id="username"></p></li>
+        <li><p id="logged-in-as">Hey! Looks like you are </p><p id="username"></p></li>
         <li role="separator" class="divider"></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="#" onclick="signOut();" >Logout</a></li>
       </ul>
     </div>
     </nav>
