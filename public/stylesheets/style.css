@@ -4,11 +4,15 @@
 		width:800;
 		height:600;
     }
+
 }
 @media screen and (max-width: 800px) {
     #game_div {
 		width:400;
 		height:300;
+    }
+     .navbar-brand, .navbar-right, .navbar-left{
+    	display:none;
     }
 }
 
