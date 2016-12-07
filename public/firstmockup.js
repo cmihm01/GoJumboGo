@@ -263,12 +263,10 @@ function update () {
 //        }
 //    }
 
-<<<<<<< HEAD
+=
  
         game.physics.arcade.overlap(player, book, overlapHandler, null, this)
-=======
 
->>>>>>> 5f0a75e1e1d691825d68c11f9ce688895b948017
     
     add_block();
 
@@ -277,11 +275,7 @@ function update () {
 function overlapHandler (obj1, obj2) {
     window.alert("You helped Jumbo get to the library! Hooray!");
 }
-<<<<<<< HEAD
-    
 
-=======
->>>>>>> 5f0a75e1e1d691825d68c11f9ce688895b948017
 
 
 function draw_grid(x,y){
