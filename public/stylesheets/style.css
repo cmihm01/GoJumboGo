@@ -1,24 +1,24 @@
 
-@media screen and (min-width: 801px) {
+/*@media screen and (min-width: 801px) {
     #game_div {
 		width:800;
 		height:600;
     }
 
-}
+}*/
 @media screen and (max-width: 800px) {
-    #game_div {
+    /*#game_div {
 		width:400;
 		height:300;
-    }
+    }*/
      .navbar-brand, .navbar-right, .navbar-left{
     	display:none;
     }
 }
 
 #game_div{
-	/*width: 800px;
-	height: 600px;*/
+	width: 800px;
+	height: 600px;
 	margin: 0 auto;
 	font-family: 'Luckiest Guy', cursive;
 	background-color: #99ccff;
