@@ -248,14 +248,19 @@ function update () {
 //        }
 //    }
 
-    game.physics.arcade.overlap(player, book, overlapHandler, null, this)
+    game.physics.arcade.overlap(player, book, overlapHandler1, null, this);
+    game.physics.arcade.overlap(player, platform, overlapHandler2, null, this);
     
     add_block();
 
   }
 
-function overlapHandler (obj1, obj2) {
+function overlapHandler1 (obj1, obj2) {
     window.alert("You helped Jumbo get to the library! Hooray!");
+}
+
+function overlapHandler2 (obj1, obj2) {
+    window.alert("Oh no! Jumbo walked into a wall!");
 }
 
 
