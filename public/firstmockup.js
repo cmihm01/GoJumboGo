@@ -262,6 +262,8 @@ function update () {
         if (player.y < book.y + 100 && player.y > book.y - 100){
             console.log("overlap");
             window.alert("You helped Jumbo get to the library! Hooray!");
+            player.x = x_start;
+            player.y = y_start;
         }
     }
 
