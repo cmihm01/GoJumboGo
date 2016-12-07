@@ -59,9 +59,12 @@
               <div id="my-signin2"></div>
                   <script>
                     function onSuccess(googleUser) {
-                      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                      var username = googleUser.getBasicProfile().getName();
+                      console.log('Logged in as: ' + username);
                       var user_indicator = document.getElementById("username");
-                      user_indicator.innerHTML = googleUser.getBasicProfile().getName();
+                      user_indicator.innerHTML = username;
+                      localStorage.user = username;
+
                     }
                     function onFailure(error) {
                       console.log(error);
