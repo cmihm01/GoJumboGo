@@ -1,4 +1,18 @@
-var game = new Phaser.Game(800,600,Phaser.AUTO, 'game_div');
+var mobile;
+var width;
+var height;
+if(window.innerWidth <= 800 && window.innerHeight <= 600){
+    mobile = true;
+    height = 300;
+    width = 400;
+}
+else{
+    mobile = false;
+     height = 600;
+    width = 800;
+}
+
+var game = new Phaser.Game(width,height,Phaser.AUTO, 'game_div');
     var game_state = {};
 
 function preload() {
@@ -49,9 +63,9 @@ var y_start = 400;
 function create() {
     console.log("in create");
 
-    player = game.add.sprite(10, 400, 'player');
+    player = game.add.sprite(10, height-200, 'player');
 
-    book = game.add.sprite(400,400,'book');
+    book = game.add.sprite(width/2,height-200,'book');
     book.scale.setTo(0.1,0.1);
 
     make_buttons();
@@ -60,7 +74,7 @@ function create() {
 
     draw_maze(100);
 
-    draw_grid(620,0);
+    draw_grid(width-120,0);
    
     player.scale.setTo(0.05,0.05);
 
@@ -114,18 +128,30 @@ function create() {
 }
 function make_buttons(){
     dir_vals = [{direction:'up', num: 0, img:'up_button'}, {direction:'down', num:100, img:'down_button'},{direction:'right', num:200, img:"right_button"}, {direction:'left', num:300, img:'left_button'}];
-    button_y = 520;
-
-    buttons.push({direction: "up", btn:game.add.sprite(0,button_y,'up_button')});
-    buttons.push({direction: "down", btn:game.add.sprite(100, button_y, 'down_button')});
-    buttons.push({direction:"right", btn:game.add.sprite(200, button_y, 'right_button')});
-    buttons.push({direction:"left", btn:game.add.sprite(300,button_y,'left_button')});
-    console.log('buttons pushed');
-    
+    button_y = height-80;
+    if(!mobile){
+        buttons.push({direction: "up", btn:game.add.sprite(0,button_y,'up_button')});
+        buttons.push({direction: "down", btn:game.add.sprite(100, button_y, 'down_button')});
+        buttons.push({direction:"right", btn:game.add.sprite(200, button_y, 'right_button')});
+        buttons.push({direction:"left", btn:game.add.sprite(300,button_y,'left_button')});
+        console.log('buttons pushed');
+    }
+    else if(mobile){
+        buttons.push({direction: "up", btn:game.add.sprite(0,button_y,'up_button')});
+        buttons.push({direction: "down", btn:game.add.sprite(50, button_y, 'down_button')});
+        buttons.push({direction:"right", btn:game.add.sprite(100, button_y, 'right_button')});
+        buttons.push({direction:"left", btn:game.add.sprite(150,button_y,'left_button')});
+        console.log('mobile buttons pushed');
+    }
     for (var i = 0; i < buttons.length; i++){
         buttons[i].btn.inputEnabled = true;
         buttons[i].btn.input.enableDrag(true);
-        buttons[i].btn.scale.setTo(0.8,0.8);
+        if(!mobile){
+            buttons[i].btn.scale.setTo(0.8,0.8);
+        }
+        else{
+            buttons[i].btn.scale.setTo(0.5,0.5);
+        }
         menu[i] = 1; 
     }
 
@@ -187,14 +213,18 @@ function update () {
  
     if(game.input.mousePointer.isUp){
         for (var i = 0; i < buttons.length; i++){
-        var check = i * 100;
-
+        if(!mobile){
+            var check = i * 100;
+        }
+        else{
+            check = i*50;
+        }
             if (buttons[i].btn.x != check && !game.input.mousePointer.isDown && buttons[i].btn.x < 620){
                 buttons[i].btn.x = check;
                 buttons[i].btn.y = button_y;
                // console.log(buttons[i].btn.x)
             }
-            if (buttons[i].btn.x >= 620){
+            if (buttons[i].btn.x >= width-180){
                 // var dir = {direction:buttons[i].direction, yval: buttons[i].btn.y};
                 // console.log(dir);
                 directions.push(buttons[i]);
@@ -230,11 +260,11 @@ function overlapHandler (obj1, obj2) {
 
 
 function draw_grid(x,y){
-    while(y < 500){
+    while(y < height-100){
         graphics.lineStyle(10, 0xffffff, 1);
         graphics.moveTo(x,y);
-        graphics.lineTo(x+130, y);
-        graphics.lineTo(x+130, y+80);
+        graphics.lineTo(x+100, y);
+        graphics.lineTo(x+100, y+80);
         graphics.lineTo(x, y+80);
         graphics.lineTo(x,y);
         y+=80;
@@ -267,9 +297,9 @@ function draw_border(){
 }
 function draw_maze(y){
        //draw rects
-    while(y < 500){
+    while(y < height-100){
         draw_rect(100,y);
-        draw_rect(500,y);
+        draw_rect(width-300,y);
         y+=50;
     }
 }
@@ -280,7 +310,12 @@ function add_block(){
     for(var i =0; i < menu.length; i++){
         if(menu[i] == 0){
             buttons[i] = {direction:dir_vals[i].direction, btn:game.add.sprite(dir_vals[i].num,button_y,dir_vals[i].img)};
-             buttons[i].btn.scale.setTo(0.8,0.8);
+            if(!mobile){
+                 buttons[i].btn.scale.setTo(0.8,0.8);
+             }
+             else{
+                buttons[i].btn.scale.setTo(0.5,0.5);
+             }
             buttons[i].btn.inputEnabled = true;
             buttons[i].btn.input.enableDrag(true);
             menu[i] = 1;

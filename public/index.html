@@ -15,12 +15,16 @@
   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 </head>
 
-<body onload='init_game()'>
-	<nav class="navbar navbar-fixed-top navbar-inverse" onload='show_user_info()'>
+<body onload='init_game();show_user_info()'>
+	<nav class="navbar navbar-fixed-top navbar-inverse">
     <script>
       function show_user_info() {
+        var username = "You are not logged in"
+        if (localStorage.user) {
+            username = localStorage.user;
+        }
         var user_indicator = document.getElementById("username");
-        user_indicator.innerHTML = "here is my name";
+        user_indicator.innerHTML = username;
       }
     </script>
 	  <a href="#" class="navbar-left"> <img class="logo" src="/img/jumbo.png"> </a>
@@ -36,7 +40,18 @@
           <a class="nav-link" href="loginpage.html">Login or Signup</a>
         </li>
       </ul>
-      <div class="navbar-text navbar-right">Signed in as </p> <p id="username"></p>
+      <div class="dropdown navbar-right">
+      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <span class="glyphicon glyphicon-cog"></span>
+
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><p id="logged-in-as">Signed In As: </p><p id="username"></p></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </div>
     </nav>
     
     <div class="center-block">  

@@ -29,8 +29,18 @@
           <a class="nav-link" href="#"> Login or Signup </a>
         </li>
       </ul>
-      <div class="navbar-text navbar-right">Signed in as </p> <p id="username"></p>
+       <div class="dropdown navbar-right">
+      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <span class="glyphicon glyphicon-cog"></span>
 
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><p id="logged-in-as">Signed In As: </p><p id="username"></p></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </div>
     </nav>
 
   <!-- Boilerplate header with game title and navigation buttons -->
@@ -49,9 +59,12 @@
               <div id="my-signin2"></div>
                   <script>
                     function onSuccess(googleUser) {
-                      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                      var username = googleUser.getBasicProfile().getName();
+                      console.log('Logged in as: ' + username);
                       var user_indicator = document.getElementById("username");
-                      user_indicator.innerHTML = googleUser.getBasicProfile().getName();
+                      user_indicator.innerHTML = username;
+                      localStorage.user = username;
+
                     }
                     function onFailure(error) {
                       console.log(error);
