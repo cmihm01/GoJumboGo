@@ -260,7 +260,6 @@ function update () {
 
     if(player.x < book.x +100 && player.x > book.x -100){
         if (player.y < book.y + 100 && player.y > book.y - 100){
-            console.log("overlap");
             window.alert("You helped Jumbo get to the library! Hooray!");
             player.x = x_start;
             player.y = y_start;
@@ -269,7 +268,7 @@ function update () {
 
 
 //    game.physics.arcade.overlap(player, book, overlapHandler1, null, this);
-//    game.physics.arcade.overlap(player, platform, overlapHandler2, null, this);
+    game.physics.arcade.overlap(player, platform, overlapHandler2, null, this);
 
   add_block();
 
@@ -279,9 +278,9 @@ function update () {
 //    window.alert("You helped Jumbo get to the library! Hooray!");
 //}
 
-//function overlapHandler2 (obj1, obj2) {
-//    window.alert("Oh no! Jumbo walked into a wall!");
-//}
+function overlapHandler2 (obj1, obj2) {
+    window.alert("Oh no! Jumbo walked into a wall!");
+}
 
 
 
