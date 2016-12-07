@@ -264,16 +264,10 @@ function update () {
 //    }
 
 
-<<<<<<< HEAD
     game.physics.arcade.overlap(player, book, overlapHandler1, null, this);
     game.physics.arcade.overlap(player, platform, overlapHandler2, null, this);
-=======
- 
-        game.physics.arcade.overlap(player, book, overlapHandler, null, this)
 
->>>>>>> 88ba1ac1a11a526e8dca7dcc1ca8684cc25a017a
-    
-    add_block();
+  add_block();
 
   }
 
