@@ -20,7 +20,7 @@
   <script>
       function show_user_info() {
         var username = "not logged in :("
-        if(sessionStorage.getItem('myUserEntity') != null){
+        if(sessionStorage.getItem('user') != null){
             username = sessionStorage.getItem('user');
         }
         var user_indicator = document.getElementById("username");
