@@ -69,7 +69,7 @@
                       var user_indicator = document.getElementById("username");
                       user_indicator.innerHTML = username;
                       sessionStorage.setItem('user',username);
-                      sendData(username);
+                      //sendData(username);
                     }
                     function onFailure(error) {
                       console.log(error);
@@ -109,7 +109,7 @@
                         var user_indicator = document.getElementById("username");
                         user_indicator.innerHTML = username;
                       }
-                      function sendData(username){
+                      /*function sendData(username){
 
                           //used to collect the data
                           var theData;
@@ -131,7 +131,7 @@
                           };
                           theData ='username='+username;
                           request.send(theData);
-                      }
+                      }*/
                   </script>
 
                   <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
