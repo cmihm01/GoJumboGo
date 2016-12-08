@@ -28,6 +28,7 @@
         console.log(username);
       }
       function signOut() {
+        console.log("logging out");
         var auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(function () {
           var user_indicator = document.getElementById("username");
