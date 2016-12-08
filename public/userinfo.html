@@ -26,13 +26,17 @@
       function show_user_info() {
         var username = "not logged in :("
         var message = "Please log in to access the user hub!"
+
+        var user_indicator = document.getElementById("username");
+        var user_indicator1 = document.getElementById("user1");
+        user_indicator1.style.visibility = "hidden";
+        var user_message = document.getElementById("loggged-indicator");
+
         if(sessionStorage.getItem('user') != null){
             username = sessionStorage.getItem('user');
             message = "Welcome to the User Hub, "
+            user_indicator1.style.visibility = "visible";
         }
-        var user_indicator = document.getElementById("username");
-        var user_indicator1 = document.getElementById("user1");
-        var user_message = document.getElementById("loggged-indicator");
 
         user_indicator.innerHTML = username;
         user_message.innerHTML = message;
