@@ -31,11 +31,13 @@
         var user_indicator1 = document.getElementById("user1");
         user_indicator1.style.visibility = "hidden";
         var user_message = document.getElementById("loggged-indicator");
+        document.getElementById("hub-lead").style.visibility = "hidden";
 
         if(sessionStorage.getItem('user') != null){
             username = sessionStorage.getItem('user');
             message = "Welcome to the User Hub, "
             user_indicator1.style.visibility = "visible";
+            document.getElementById("hub-lead").style.visibility = "visible";
         }
 
         user_indicator.innerHTML = username;
@@ -87,7 +89,7 @@
         <h1 class="display-3">User Hub</h1>
         <div class = "about-info">
         <h3 id = "loggged-indicator"> </h3><h3 id = "user1"> </h3>
-        <p class="lead"> Here's all the user info, look how useful how interesting!!! Crazy!! .</p>
+        <p id = "hub-lead" class="lead"> Here's all the user info, look how useful how interesting!!! Crazy!! .</p>
       </div>
       </div>
   </div>
