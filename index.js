@@ -11,7 +11,7 @@ app.use(favicon(__dirname + '/public/favicon.ico'));
 //app.use("/scripts", express.static(__dirname + '/public/javascripts'));
 app.use("/img",  express.static(__dirname + '/img'));
 
-
+/*
 var mongoUri = process.env.MONGODB_URI || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL;
 
 var MongoClient = require('mongodb').MongoClient, format = require('util').format;
@@ -20,7 +20,7 @@ var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
 		console.log('error!');
 	}
 	db = databaseConnection;
-});
+});*/
 // views is directory for all template files
 //app.set('views', __dirname + '/views');
 //app.set('view engine', 'ejs');

@@ -93,10 +93,10 @@
                       });
                       $("#success-alert").show();
                       window.setTimeout(function() {
-                          $("success-alert").fadeTo(500, 0).slideUp(500, function(){
+                          $("success-alert").fadeTo(2000, 500).slideUp(500, function(){
                               $(this).remove(); 
                           });
-                      }, 50);
+                      }, 5000);
                       sessionStorage.clear();
                       location.reload();
                     }
