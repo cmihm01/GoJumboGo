@@ -13,7 +13,8 @@
     "ejs": "2.4.1",
     "express": "4.13.3",
     "path": "^0.12.7",
-    "serve-favicon": "latest"
+    "serve-favicon": "latest",
+    "mongodb":"latest"
   },
   "repository": {
     "type": "git",
