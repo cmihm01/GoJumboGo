@@ -1,0 +1,12 @@
+Accomplished:
+	We successfullly implemented login and logout. It also saves the user's names and greets them. 
+	We also created a different form to be used if our game is accessed on a mobile platform. It has the same functionality but just a smaller screen. 
+	When the elephant reaches the book, you are alerted and the elephant is reset so you can play again! 
+	Finally, we added a dropdown menu that allows you to see when you're signed in and logged out.
+
+Challenges:
+	With login and logout, we are struggling to figure out how to maintain the login states. Our objects on the screen aren't actual objects, so we are having trouble sensing when they are touching. 
+Goals:
+	1. Fix Login data persistence
+	2. Create Mongo database which will store user time of login. Ideally, if we were building the full implementation, it would be used to store records containing scores and mazes completed. We also want to make a page so that users can access their scores. 
+	3. Create a bounds check for Jumbo. 
