@@ -25,11 +25,16 @@
   <script>
       function show_user_info() {
         var username = "not logged in :("
+        var message = "Please log in to access the user hub!"
         if(sessionStorage.getItem('user') != null){
             username = sessionStorage.getItem('user');
+            message = "Welcome to the User Hub, "
         }
         var user_indicator = document.getElementById("username");
+        var user_indicator1 = document.getElementById("user1");
+
         user_indicator.innerHTML = username;
+        user_indicator1.innerHTML = username + "!";
       }
       function signOut() {
         var auth2 = gapi.auth2.getAuthInstance();
@@ -72,8 +77,9 @@
     
    <div id = "jumbo-center">
 	 <div class="jumbotron">
-        <h1 class="display-3">User Information</h1>
+        <h1 class="display-3">User Hub</h1>
         <div class = "about-info">
+        <h3 class = "loggged-indicator"> </h3><h3 id = "user1"> </h3>
         <p class="lead"> Here's all the user info, look how useful how interesting!!! Crazy!! .</p>
       </div>
       </div>
