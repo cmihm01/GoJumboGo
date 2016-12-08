@@ -27,13 +27,14 @@
         user_indicator.innerHTML = username;
       }
       function signOut() {
-        console.log("logging out");
         var auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(function () {
+          console.log("logggging out");
           var user_indicator = document.getElementById("username");
           user_indicator.innerHTML = "not logged in :(";
+          location.reload();
         });
-        location.reload();
+
       }
     </script>
   <nav class="navbar navbar-fixed-top navbar-inverse">
