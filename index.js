@@ -22,6 +22,48 @@ app.get('/', function(request, response) {
   response.sendFile(path.join(__dirname + '/index.html'))
 });
 
+app.post('/submit.json', function(request, response) {
+	//stores name, score, and grid from request 
+	var name = request.body.username;
+
+	//generates time stamp
+	var time = new Date();
+
+	//allows for CORS
+	response.header('Access-Control-Allow-Origin', '*');
+	response.header('Access-Control-Allow-Headers', 'X-Requested-With');
+	
+	//creates JSON file of data
+	var toInsert = {
+		"username": name,
+		"time":time
+	};
+	//checks if any fields undefined
+	//if not, calls to database
+	//stores info in database
+	if(name != undefined){
+		db.collection('users', function(error, coll) {
+			if (error){
+				console.log("couldn't find database");
+			}
+			else{
+				//inserts data
+				coll.insert(toInsert, function(error, saved) {
+					if (error) {
+						response.send(500);
+					}
+					else {
+						response.send(200);
+					}
+			    });
+			}
+		});
+	}
+	// else{
+	// 	response.send(500);
+	// }
+
+});
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
