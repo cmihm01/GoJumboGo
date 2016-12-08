@@ -32,6 +32,23 @@ app.get('/', function(request, response) {
   response.sendFile(path.join(__dirname + '/index.html'))
 });
 
+/*app.get('/logins.json', function(request, response) {
+	var targetName = request.param("username");
+    response.setHeader('Content-Type', 'application/json');
+
+    // REMOVE SPECIAL CHARACTERS FROM USERNAME PARAM
+
+	db.collection('users', function(er, collection) {
+		collection.find({username: targetName}).sort({score:-1}).toArray(function(err, result) {
+			if (!err) {
+				response.json(result);
+			} else {
+				response.send('Whoops, something went terribly wrong!');
+			}
+		});
+	});
+}); */
+
 app.post('/submit.json', function(request, response) {
 	//stores name, score, and grid from request 
 	var name = request.body.username;

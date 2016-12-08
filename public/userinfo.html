@@ -5,19 +5,24 @@
 	<meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<script type = 'text/javascript' src="phaser.js"></script>
 	<script type= "text/javascript" src = "firstmockup.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+
   <link rel ="stylesheet" href ="/stylesheets/style.css"> 
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="512652555860-8fg7je25ha3t7t7f2v8stvvahl4n618r.apps.googleusercontent.com">
+
+
 </head>
 
-<body onload='init_game();show_user_info()'>
-	<nav class="navbar navbar-fixed-top navbar-inverse">
-    <script>
+<body onload='show_user_info()'>
+  <script>
       function show_user_info() {
         var username = "not logged in :("
         if(sessionStorage.getItem('user') != null){
@@ -25,25 +30,27 @@
         }
         var user_indicator = document.getElementById("username");
         user_indicator.innerHTML = username;
-        console.log(username);
       }
       function signOut() {
-        console.log("logging out");
         var auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(function () {
+          console.log("logggging out");
           var user_indicator = document.getElementById("username");
           user_indicator.innerHTML = "not logged in :(";
+          location.reload();
         });
+
       }
     </script>
-	  <a href="#" class="navbar-left"> <img class="logo" src="/img/jumbo.png"> </a>
+  <nav class="navbar navbar-fixed-top navbar-inverse">
+	  <a href="#" class="navbar-left"> <img class="logo" src="img/jumbo.png"> </a>
       <a class="navbar-brand" href="index.html">GoJumboGo!</a>
       <ul class="nav navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#"> Play! <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.html"> Play! <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="aboutus.html">About GoJumboGo!</a>
+          <a class="nav-link" href="#">About GoJumboGo!</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="loginpage.html">Login or Signup</a>
@@ -58,14 +65,19 @@
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
         <li><p id="logged-in-as">Hey! Looks like you are </p><p id="username"></p></li>
         <li role="separator" class="divider"></li>
-        <li><a id="logout-button" href="userinfo.html">User Hub</a></li>
+        <li><a id="logout-button" href="#">User Hub</a></li>
       </ul>
-    </div>
+
     </nav>
     
-    <div class="center-block">  
-	     <div id = "game_div"> </div>
-    </div>
+   <div id = "jumbo-center">
+	 <div class="jumbotron">
+        <h1 class="display-3">User Information</h1>
+        <div class = "about-info">
+        <p class="lead"> Here's all the user info, look how useful how interesting!!! Crazy!! .</p>
+      </div>
+      </div>
+  </div>
 </div>
 </body>
 </html>
