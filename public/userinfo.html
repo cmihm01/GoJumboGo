@@ -32,9 +32,12 @@
         }
         var user_indicator = document.getElementById("username");
         var user_indicator1 = document.getElementById("user1");
+        var user_message = document.getElementById("loggged-indicator");
 
         user_indicator.innerHTML = username;
+        user_message.innerHTML = user_message;
         user_indicator1.innerHTML = username + "!";
+
       }
       function signOut() {
         var auth2 = gapi.auth2.getAuthInstance();
