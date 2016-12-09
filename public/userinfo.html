@@ -81,13 +81,13 @@
         var table = document.getElementById("login-table");
         tabBody=document.getElementsByTagName("tbody").item(0);
         console.log(logindata);
-        for (var i in logindata) {
-            console.log(i);
+        for (var i = 0; i < logindata.length; i++) {
+            console.log(logindata[i]);
             row=document.createElement("tr");
              cell1 = document.createElement("td");
              cell2 = document.createElement("td");
-             textnode1=document.createTextNode(i.username);
-             textnode2=document.createTextNode(i.time);
+             textnode1=document.createTextNode(logindata[i].username);
+             textnode2=document.createTextNode(logindata[i].time);
              cell1.appendChild(textnode1);
              cell2.appendChild(textnode2);
              row.appendChild(cell1);
