@@ -80,8 +80,8 @@
       function draw_table (logindata) {
         var table = document.getElementById("login-table");
         tabBody=document.getElementsByTagName("tbody").item(0);
-        console.log(logindata);
-        for (var i = 0; i < logindata.length; i++) {
+        var num_logins = logindata.length;
+        for (var i = 0; i < num_logins; i++) {
             console.log(logindata[i]);
             row=document.createElement("tr");
              cell1 = document.createElement("td");
@@ -94,6 +94,13 @@
              row.appendChild(cell2);
              tabBody.appendChild(row);
         }
+        var loginmsg = document.getElementById("login-count");
+        var newmsg;
+        if (num_logins > 10)
+          newmsg = num_logins + " times! We're glad you like GoJumboGo";
+        else 
+          newmsg = "only " + num_logins + "times. Thanks for joining us";
+        loginmsg.innerHTML = newmsg;
       }
     </script>
   <nav class="navbar navbar-fixed-top navbar-inverse">
@@ -129,7 +136,7 @@
         <h1 class="display-3">User Hub</h1>
         <div class = "about-info">
         <h3 id = "loggged-indicator"> </h3><h3 id = "user1"> </h3>
-        <p id = "hub-lead" class="lead"> Here's all the user info, look how useful how interesting!!! Crazy!! .</p>
+        <p id = "hub-lead" class="lead"> Looks like you've logged in <p id="login-count"></p>!</p>
         <table class= "table" id = "login-table">
           <thead class="thead-inverse">
             <tr>
