@@ -80,16 +80,19 @@
       function draw_table (logindata) {
         var table = document.getElementById("login-table");
         tabBody=document.getElementsByTagName("tbody").item(0);
-        row=document.createElement("tr");
-         cell1 = document.createElement("td");
-         cell2 = document.createElement("td");
-         textnode1=document.createTextNode("ME");
-         textnode2=document.createTextNode("a long time ago");
-         cell1.appendChild(textnode1);
-         cell2.appendChild(textnode2);
-         row.appendChild(cell1);
-         row.appendChild(cell2);
-         tabBody.appendChild(row);
+        console.log(logindata);
+        for (var i in logindata) {
+            row=document.createElement("tr");
+             cell1 = document.createElement("td");
+             cell2 = document.createElement("td");
+             textnode1=document.createTextNode("ME");
+             textnode2=document.createTextNode("a long time ago");
+             cell1.appendChild(textnode1);
+             cell2.appendChild(textnode2);
+             row.appendChild(cell1);
+             row.appendChild(cell2);
+             tabBody.appendChild(row);
+        }
       }
     </script>
   <nav class="navbar navbar-fixed-top navbar-inverse">
@@ -127,8 +130,6 @@
         <h3 id = "loggged-indicator"> </h3><h3 id = "user1"> </h3>
         <p id = "hub-lead" class="lead"> Here's all the user info, look how useful how interesting!!! Crazy!! .</p>
         <table id = "login-table"><tbody><tr><th>User</th><th>Last Logged In</th></tr>
-          <tr><td> Username123 <td>
-              <td> Yesterday <td></tr>
         </table>
       </div>
       </div>
