@@ -81,6 +81,7 @@ app.post('/submit.json', function(request, response) {
 						response.send(500);
 					}
 					else {
+						console.log("all good");
 						response.send(200);
 					}
 			    });
