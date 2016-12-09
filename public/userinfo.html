@@ -34,14 +34,13 @@
         document.getElementById("hub-lead").style.visibility = "hidden";
         document.getElementById("login-table").style.visibility = "hidden";
 
-
         if(sessionStorage.getItem('user') != null){
             username = sessionStorage.getItem('user');
             message = "Welcome to the User Hub, "
             user_indicator1.style.visibility = "visible";
             document.getElementById("hub-lead").style.visibility = "visible";
             document.getElementById("login-table").style.visibility = "visible";
-
+            login_data(username);
         }
 
         user_indicator.innerHTML = username;
@@ -58,6 +57,28 @@
           location.reload();
         });
 
+      }
+
+      function login_data(username) {
+        var request = new XMLHttpRequest();
+        request.open('GET', "https://immense-spire-32496.herokuapp.com/logins.json?username=" + encodeURI(username),
+                                                                         true);
+
+        request.send();
+
+        request.onreadystatechange = function() {
+            if (request.readyState == XMLHttpRequest.DONE) {
+                if (request.status != 200)
+                    alert ("Error loading user data. Please refresh page.");
+                else {
+                    var logins = JSON.parse(request.responseText);
+                    draw_table(logindata);
+                }
+            }
+        }
+      }
+      function draw_table (logindata) {
+        console.log(logindata);
       }
     </script>
   <nav class="navbar navbar-fixed-top navbar-inverse">
