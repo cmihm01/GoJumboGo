@@ -2,7 +2,11 @@ var express = require('express');
 var favicon = require('serve-favicon');
 var app = express();
 var path = require('path');
-var bodyParser = require('body-parser');
+
+var bodyParser = require('body-parser'); // Required if we need to use HTTP query or post parameters
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); 
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
@@ -33,14 +37,14 @@ app.get('/', function(request, response) {
   response.sendFile(path.join(__dirname + '/index.html'))
 });
 
-/*app.get('/logins.json', function(request, response) {
+app.get('/logins.json', function(request, response) {
 	var targetName = request.param("username");
     response.setHeader('Content-Type', 'application/json');
 
     // REMOVE SPECIAL CHARACTERS FROM USERNAME PARAM
 
 	db.collection('users', function(er, collection) {
-		collection.find({username: targetName}).sort({score:-1}).toArray(function(err, result) {
+		collection.find({username: targetName}).toArray(function(err, result) {
 			if (!err) {
 				response.json(result);
 			} else {
@@ -48,7 +52,7 @@ app.get('/', function(request, response) {
 			}
 		});
 	});
-}); */
+});
 
 app.post('/submit.json', function(request, response) {
 	//stores name, score, and grid from request 
@@ -72,7 +76,7 @@ app.post('/submit.json', function(request, response) {
 	if(name != undefined){
 		db.collection('users', function(error, coll) {
 			if (error){
-				console.log("couldn't find database");
+				console.log("Whoops, something went terribly wrong!");
 			}
 			else{
 				//inserts data
