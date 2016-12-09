@@ -14,7 +14,8 @@
     "express": "4.13.3",
     "path": "^0.12.7",
     "serve-favicon": "latest",
-    "mongodb":"latest"
+    "mongodb":"latest",
+    "body-parser":"latest"
   },
   "repository": {
     "type": "git",

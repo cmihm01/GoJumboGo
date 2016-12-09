@@ -2,7 +2,7 @@ var express = require('express');
 var favicon = require('serve-favicon');
 var app = express();
 var path = require('path');
-
+var bodyParser = require('body-parser');
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
@@ -10,8 +10,9 @@ app.use(favicon(__dirname + '/public/favicon.ico'));
 //app.use("/styles",  express.static(__dirname + '/public/stylesheets'));
 //app.use("/scripts", express.static(__dirname + '/public/javascripts'));
 app.use("/img",  express.static(__dirname + '/img'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 
-/*
 var mongoUri = process.env.MONGODB_URI || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL;
 
 var MongoClient = require('mongodb').MongoClient, format = require('util').format;
@@ -20,7 +21,7 @@ var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
 		console.log('error!');
 	}
 	db = databaseConnection;
-});*/
+});
 // views is directory for all template files
 //app.set('views', __dirname + '/views');
 //app.set('view engine', 'ejs');
