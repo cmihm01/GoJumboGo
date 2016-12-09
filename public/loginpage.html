@@ -70,7 +70,6 @@
                       var user_indicator = document.getElementById("username");
                       user_indicator.innerHTML = username;
                       sessionStorage.setItem('user',username);
-                      sendData(username);
                     }
                     function onFailure(error) {
                       console.log(error);
@@ -87,6 +86,8 @@
                       });
                     }
                     function signOut() {
+                      var username = googleUser.getBasicProfile().getName();
+                      sendData(username);
                       var auth2 = gapi.auth2.getAuthInstance();
                       auth2.signOut().then(function () {
                         var user_indicator = document.getElementById("username");
