@@ -75,6 +75,10 @@
     line-height: 1.42857143;
 }
 
+.th {
+	text-align: center;
+}
+
 #masterLogin {
 	margin: 0 auto;
 	width: 60%;
