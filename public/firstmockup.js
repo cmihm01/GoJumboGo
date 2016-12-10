@@ -263,6 +263,7 @@ function update () {
             window.alert("You helped Jumbo get to the library! Hooray!");
             player.x = x_start;
             player.y = y_start;
+            sendTimesPlayed();
         }
     }
 
@@ -349,6 +350,29 @@ function add_block(){
     }
 
 }
+function sendTimesPlayed(){
+     //used to collect the data
+  var theData;
+  alert("sending data");
+  username = sessionStorage.getItem('user')
+  //creating new XMLHttp Post Request
+  request = new XMLHttpRequest();
+  request.open("POST", 'https://immense-spire-32496.herokuapp.com/times.json', true);
+  
+  //sets content type -- encoded url
+  request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  request.onreadystatechange = function(){
+   if(request.readyState == 4 && request.status != 200) {
+          console.log("Can't find the server!");
+    }
+    //still waiting for status 
+    else {
+          console.log("In progress...");
+    }
+  };
+  theData ='username='+username;
+  request.send(theData);
 
+}
 
 

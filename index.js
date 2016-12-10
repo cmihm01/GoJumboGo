@@ -2,7 +2,7 @@ var express = require('express');
 var favicon = require('serve-favicon');
 var app = express();
 var path = require('path');
-
+var req = require('request');
 var bodyParser = require('body-parser'); // Required if we need to use HTTP query or post parameters
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
@@ -92,9 +92,35 @@ app.post('/submit.json', function(request, response) {
 			}
 		});
 	}
-	// else{
-	// 	response.send(500);
-	// }
+
+});
+app.post('/times.json', function(request, response) {
+	//stores name, score, and grid from request 
+	var name = request.body.username;
+	//generates time stamp
+	var time = new Date();
+
+	//allows for CORS
+	response.header('Access-Control-Allow-Origin', '*');
+	response.header('Access-Control-Allow-Headers', 'X-Requested-With');
+	
+	//checks if any fields undefined
+	//if not, calls to database
+	//stores info in database
+	if(name != undefined){
+		db.collection('users', function(error, coll) {
+			if (error){
+				console.log("Whoops, something went terribly wrong!");
+			}
+			else{
+				//inserts data
+				coll.update({username:"name"},
+					{$inc:{times_played:1}});
+				console.log(coll.find({username:"name"}));
+					response.send(200);
+			}
+		});
+	}
 
 });
 app.listen(app.get('port'), function() {
