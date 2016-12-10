@@ -17,7 +17,7 @@ app.use("/img",  express.static(__dirname + '/img'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-var mongoUri = process.env.MONGODB_URI || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL;
+var mongoUri = process.env.MONGODB_URI || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || "mongodb://localhost/users";
 
 var MongoClient = require('mongodb').MongoClient, format = require('util').format;
 var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
@@ -68,7 +68,8 @@ app.post('/submit.json', function(request, response) {
 	//creates JSON file of data
 	var toInsert = {
 		"username": name,
-		"time":time
+		"time":time,
+		"times_played":0
 	};
 	//checks if any fields undefined
 	//if not, calls to database
@@ -95,6 +96,7 @@ app.post('/submit.json', function(request, response) {
 
 });
 app.post('/times.json', function(request, response) {
+	console.log("in times.json");
 	//stores name, score, and grid from request 
 	var name = request.body.username;
 	//generates time stamp
@@ -116,7 +118,7 @@ app.post('/times.json', function(request, response) {
 				//inserts data
 				coll.update({username:"name"},
 					{$inc:{times_played:1}});
-				console.log(coll.find({username:"name"}));
+				console.log("Sent times");
 					response.send(200);
 			}
 		});
