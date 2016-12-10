@@ -353,7 +353,6 @@ function add_block(){
 function sendTimesPlayed(){
      //used to collect the data
   var theData;
-  alert("sending data");
   username = sessionStorage.getItem('user')
   //creating new XMLHttp Post Request
   request = new XMLHttpRequest();
