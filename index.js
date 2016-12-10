@@ -2,7 +2,7 @@ var express = require('express');
 var favicon = require('serve-favicon');
 var app = express();
 var path = require('path');
-var req = require('request');
+
 var bodyParser = require('body-parser'); // Required if we need to use HTTP query or post parameters
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
