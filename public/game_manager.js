@@ -233,7 +233,6 @@ function update () {
             window.alert("You helped Jumbo get to the library! Hooray!");
             player.x = x_start;
             player.y = y_start;
-            sendTimesPlayed();
         }
     }
 
