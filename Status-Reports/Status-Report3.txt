@@ -10,3 +10,7 @@ Goals:
 	1. Fix Login data persistence
 	2. Create Mongo database which will store user time of login. Ideally, if we were building the full implementation, it would be used to store records containing scores and mazes completed. We also want to make a page so that users can access their scores. 
 	3. Create a bounds check for Jumbo. 
+	
+#Comments by Ming
+* " we are struggling to figure out how to maintain the login states. " => use cookies or local storage
+* "Bootstrap CSS is also difficult to work with, because we had to manually override." => not a surprise.
