@@ -4,6 +4,10 @@
 /*************************************************************************/
 /*************************************************************************/
 
+
+var google-signin-client_id = process.env.google-signin-client_id
+
+
 function showhub_user_info() {
   var username = "not logged in :("
   var message = "Please log in to access the user hub!"
