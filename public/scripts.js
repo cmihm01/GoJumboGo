@@ -132,7 +132,7 @@ function signOut() {
 
 
 
-function show_user_info() {
+function showlogin_user_info() {
     $("#success-alert").hide();
     var username = "not logged in :("
     if(sessionStorage.getItem('myUserEntity') != null){
@@ -165,3 +165,18 @@ function sendData(username){
     theData ='username='+username;
     request.send(theData);
 }
+
+
+/*************************************************************************/
+/*******************      ABOUT/INDEX UTILS         **********************/
+/*************************************************************************/
+/*************************************************************************/
+
+function show_user_info() {
+        var username = "not logged in :("
+        if(sessionStorage.getItem('user') != null){
+            username = sessionStorage.getItem('user');
+        }
+        var user_indicator = document.getElementById("username");
+        user_indicator.innerHTML = username;
+      }
