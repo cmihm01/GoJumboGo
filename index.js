@@ -53,6 +53,13 @@ app.get('/logins.json', function(request, response) {
 		});
 	});
 });
+
+app.get('/clientid',function(request,response){
+	var id = process.env.CLIENT_ID.
+	response.setHeader('Content-Type', 'text/html');
+
+	response.send(id);
+}
 //called when a user logs out : tracks who logged in and what time
 app.post('/submit.json', function(request, response) {
 	//stores name, score, and grid from request 

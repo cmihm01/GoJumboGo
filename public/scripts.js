@@ -51,6 +51,21 @@ function login_data(username) {
       }
   }
 }
+function get_id(){
+  var request = new XMLHttpRequest();
+  request.open('GET', "https://immense-spire-32496.herokuapp.com/clientid", true);
+  request.send();
+
+  request.onreadystatechange = function() {
+      if (request.readyState == XMLHttpRequest.DONE) {
+          if (request.status != 200)
+              alert ("Error loading user data. Please refresh page.");
+          else {
+              var google-signin-client_id = request.responseText;
+          }
+      }
+  }
+}
 
 //draws a table for user data
 function draw_table (logindata) {
