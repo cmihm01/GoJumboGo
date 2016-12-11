@@ -39,7 +39,7 @@ function preload() {
     game.load.image('reset_button','img/reset.png')
     game.load.image('add_button', 'img/add.png');
     game.load.image('book', '/img/book.png');
-    //game.load.image('platform2', 'http://www.clker.com/cliparts/n/3/N/y/H/g/navy-blue-square.svg');
+
 }
 
 /*sets game states*/
@@ -72,8 +72,6 @@ var y_start;
 
 /*Draws game board, renders sprites*/
 function create() {
-    console.log("in create");
-
     player = game.add.sprite(10, height-200, 'player');
 
     book = game.add.sprite(width/2+15,height-200,'book');
@@ -187,7 +185,6 @@ function go_jumbo(){
             move = 100;
         }
         for (var i = 0; i < directions.length; i++){
-            console.log(directions[i].direction);
             if(directions[i].direction == 'up'){
                 player.body.y -= move;
             }
@@ -273,8 +270,8 @@ function draw_grid(x,y){
 //helper function for maze
 function draw_rect(x,y){
     graphics = game.add.graphics(0, 0);
-    graphics.beginFill(0xFF3300);
-    graphics.lineStyle(10, 0xffd900, 1);
+    graphics.beginFill(0x0033BB);
+    graphics.lineStyle(10, 0x00AA00, 1);
     
     // draw a shape
     graphics.moveTo(x,y);

@@ -4,6 +4,7 @@
 /*************************************************************************/
 /*************************************************************************/
 
+//Called when the user hub page is opened
 function showhub_user_info() {
   var username = "not logged in :("
   var message = "Please log in to access the user hub!"
@@ -29,8 +30,7 @@ function showhub_user_info() {
   user_indicator1.innerHTML = username + "!";
 
 }
-
-
+//makes get request for user data 
 function login_data(username) {
   var request = new XMLHttpRequest();
   request.open('GET', "https://immense-spire-32496.herokuapp.com/logins.json?username=" + encodeURI(username),
@@ -50,7 +50,7 @@ function login_data(username) {
   }
 }
 
-
+//draws a table for user data
 function draw_table (logindata) {
     var table = document.getElementById("login-table");
     tabBody=document.getElementsByTagName("tbody").item(0);
@@ -85,6 +85,7 @@ function draw_table (logindata) {
 /*************************************************************************/
 /*************************************************************************/
 
+//when a login is successful 
 function onSuccess(googleUser) {
     var username = googleUser.getBasicProfile().getName();
     console.log('Logged in as: ' + username);
@@ -97,7 +98,7 @@ function onSuccess(googleUser) {
 }
 
 
-
+//renders logged in button
 function renderButton() {
     gapi.signin2.render('my-signin2', {
       'scope': 'profile email',
@@ -111,7 +112,7 @@ function renderButton() {
 }
 
 
-
+//when the signout button is clicked
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     var username = (auth2.currentUser.get()).getBasicProfile().getName();
@@ -130,7 +131,7 @@ function signOut() {
 }
 
 
-
+//called on load 
 function showlogin_user_info() {
     $("#success-alert").hide();
     var username = "not logged in :("
@@ -141,7 +142,7 @@ function showlogin_user_info() {
     user_indicator.innerHTML = username;
 }
 
-
+//sends data on logout 
 function sendData(username){
     //used to collect the data
     var theData;
