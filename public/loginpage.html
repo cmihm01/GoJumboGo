@@ -86,9 +86,9 @@
                       });
                     }
                     function signOut() {
-                      var username = googleUser.getBasicProfile().getName();
-                      sendData(username);
                       var auth2 = gapi.auth2.getAuthInstance();
+                      var username = (auth2.currentUser.get()).getBasicProfile().getName();
+                      sendData(username);
                       auth2.signOut().then(function () {
                         var user_indicator = document.getElementById("username");
                         user_indicator.innerHTML = "not logged in :(";
