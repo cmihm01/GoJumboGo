@@ -2,6 +2,7 @@ var express = require('express');
 var favicon = require('serve-favicon');
 var app = express();
 var path = require('path');
+var google = require('googleapis');
 
 var bodyParser = require('body-parser'); // Required if we need to use HTTP query or post parameters
 app.use(bodyParser.json());
@@ -16,7 +17,7 @@ app.use("/img",  express.static(__dirname + '/img'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-
+var client_id = process.env.CLIENT_ID;
 //sets mongo connection 
 var mongoUri = process.env.MONGODB_URI || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || "mongodb://localhost/users";
 
@@ -53,12 +54,6 @@ app.get('/logins.json', function(request, response) {
 	});
 });
 
-app.get('/clientid', function(request,response){
-	var id = process.env.CLIENT_ID;
-	response.writeHead(200, {"Content-Type": "text/plain"});
-
-	response.send(id);
-});
 //called when a user logs out : tracks who logged in and what time
 app.post('/submit.json', function(request, response) {
 	//stores name, score, and grid from request 

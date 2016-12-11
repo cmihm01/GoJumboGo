@@ -15,7 +15,8 @@
     "path": "^0.12.7",
     "serve-favicon": "latest",
     "mongodb":"latest",
-    "body-parser":"latest"
+    "body-parser":"latest",
+    "googleapis":"latest"
   },
   "repository": {
     "type": "git",

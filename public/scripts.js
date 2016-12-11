@@ -51,21 +51,7 @@ function login_data(username) {
       }
   }
 }
-function get_id(){
-  var request = new XMLHttpRequest();
-  request.open('GET', "https://immense-spire-32496.herokuapp.com/clientid", true);
-  request.send();
 
-  request.onreadystatechange = function() {
-      if (request.readyState == XMLHttpRequest.DONE) {
-          if (request.status != 200)
-              alert ("Error loading user data. Please refresh page.");
-          else {
-              document.getElementById('ci').content=request.responseText;
-          }
-      }
-  }
-}
 
 //draws a table for user data
 function draw_table (logindata) {
@@ -150,7 +136,6 @@ function signOut() {
 
 //called on load 
 function showlogin_user_info() {
-  get_id();
     $("#success-alert").hide();
     var username = "not logged in :("
     if(sessionStorage.getItem('myUserEntity') != null){
