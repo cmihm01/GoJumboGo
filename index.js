@@ -99,9 +99,7 @@ app.post('/times.json', function(request, response) {
 	console.log("in times.json");
 	//stores name, score, and grid from request 
 	var name = request.body.username;
-	//generates time stamp
-	var time = new Date();
-
+	
 	//allows for CORS
 	response.header('Access-Control-Allow-Origin', '*');
 	response.header('Access-Control-Allow-Headers', 'X-Requested-With');
@@ -117,7 +115,9 @@ app.post('/times.json', function(request, response) {
 			else{
 				//inserts data
 				coll.update({username:"name"},
-					{$inc:{times_played:1}});
+					{$inc:{times_played:1}},
+					{upsert:true}
+				);
 				console.log("Sent times");
 					response.send(200);
 			}
