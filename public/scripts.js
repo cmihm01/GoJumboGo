@@ -61,7 +61,7 @@ function get_id(){
           if (request.status != 200)
               alert ("Error loading user data. Please refresh page.");
           else {
-              var google-signin-client_id = request.responseText;
+              document.getElementById('ci').content=request.responseText;
           }
       }
   }
