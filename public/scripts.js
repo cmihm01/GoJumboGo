@@ -6,7 +6,7 @@
 
 //Called when the user hub page is opened
 
-console.log(process.env.CLIENT_ID)
+
 function showhub_user_info() {
   var username = "not logged in :("
   var message = "Please log in to access the user hub!"

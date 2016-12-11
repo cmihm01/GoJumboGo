@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 //sets mongo connection 
 var mongoUri = process.env.MONGODB_URI || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || "mongodb://localhost/users";
 
+
 var MongoClient = require('mongodb').MongoClient, format = require('util').format;
 var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
 	if(error){
@@ -29,6 +30,8 @@ var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
 });
 
 //called when page loads
+var google-signin-client_id = process.env.CLIENT_ID;
+
 app.get('/', function(request, response) {
   response.sendFile(path.join(__dirname + '/index.html'))
 });
