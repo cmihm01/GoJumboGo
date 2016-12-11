@@ -158,6 +158,7 @@ function showlogin_user_info() {
     }
     var user_indicator = document.getElementById("username");
     user_indicator.innerHTML = username;
+    get_id();
 }
 
 //sends data on logout 
