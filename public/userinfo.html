@@ -97,11 +97,11 @@
         var loginmsg = document.getElementById("login-count");
         var newmsg;
         if (num_logins > 10)
-          newmsg = num_logins + " times! We're glad you like GoJumboGo";
-        else if (num_logins == 1)
+          newmsg = (num_logins + 1) + " times! We're glad you like GoJumboGo";
+        else if (num_logins == 0)
           newmsg = "once. Welcome to GoJumboGo"
         else 
-          newmsg = "only " + num_logins + " times. Thanks for joining us";
+          newmsg = "only " + (num_logins + 1) + " times. Thanks for joining us";
         loginmsg.innerHTML = newmsg;
       }
     </script>
