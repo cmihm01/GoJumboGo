@@ -150,7 +150,7 @@ function signOut() {
 
 //called on load 
 function showlogin_user_info() {
-  console.log(process.env.CLIENT_ID)
+  get_id();
     $("#success-alert").hide();
     var username = "not logged in :("
     if(sessionStorage.getItem('myUserEntity') != null){
