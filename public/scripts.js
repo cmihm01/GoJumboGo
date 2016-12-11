@@ -1,3 +1,9 @@
+
+/*************************************************************************/
+/*******************       USER HUB UTILS           **********************/
+/*************************************************************************/
+/*************************************************************************/
+
 function showhub_user_info() {
   var username = "not logged in :("
   var message = "Please log in to access the user hub!"
@@ -25,17 +31,6 @@ function showhub_user_info() {
 }
 
 
-function signOut() {
-  var auth2 = gapi.auth2.getAuthInstance();
-  auth2.signOut().then(function () {
-    var user_indicator = document.getElementById("username");
-    user_indicator.innerHTML = "not logged in :(";
-    location.reload();
-  });
-
-}
-
-
 function login_data(username) {
   var request = new XMLHttpRequest();
   request.open('GET', "https://immense-spire-32496.herokuapp.com/logins.json?username=" + encodeURI(username),
@@ -54,7 +49,6 @@ function login_data(username) {
       }
   }
 }
-
 
 
 function draw_table (logindata) {
@@ -86,6 +80,11 @@ function draw_table (logindata) {
 }
 
 
+
+/*************************************************************************/
+/*******************      LOGIN/LOGOUT UTILS        **********************/
+/*************************************************************************/
+/*************************************************************************/
 
 function onSuccess(googleUser) {
     var username = googleUser.getBasicProfile().getName();
