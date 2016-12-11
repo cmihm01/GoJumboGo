@@ -58,7 +58,7 @@ app.get('/clientid',function(request,response){
 	response.setHeader('Content-Type', 'text/html');
 
 	response.send(id);
-}
+});
 //called when a user logs out : tracks who logged in and what time
 app.post('/submit.json', function(request, response) {
 	//stores name, score, and grid from request 
