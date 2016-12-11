@@ -54,7 +54,7 @@ app.get('/logins.json', function(request, response) {
 });
 
 app.get('/clientid', function(request,response){
-	var id = process.env.CLIENT_ID.
+	var id = process.env.CLIENT_ID;
 	response.writeHead(200, {"Content-Type": "text/plain"});
 
 	response.send(id);
