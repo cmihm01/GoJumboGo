@@ -30,7 +30,6 @@ var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
 });
 
 //called when page loads
-var google-signin-client_id = process.env.CLIENT_ID;
 
 app.get('/', function(request, response) {
   response.sendFile(path.join(__dirname + '/index.html'))
