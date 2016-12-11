@@ -9,9 +9,12 @@
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel ="stylesheet" href ="/stylesheets/style.css"> 
+  <script type="text/javascript" src="scripts.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
 </head>
 
 <body onload="show_user_info()">
@@ -63,79 +66,6 @@
            <div class="row">
             <div class="col-md-5">
               <div id="my-signin2"></div>
-                  <script>
-                    function onSuccess(googleUser) {
-                      var username = googleUser.getBasicProfile().getName();
-                      console.log('Logged in as: ' + username);
-                      var user_indicator = document.getElementById("username");
-                      user_indicator.innerHTML = username;
-                      sessionStorage.setItem('user',username);
-                    }
-                    function onFailure(error) {
-                      console.log(error);
-                    }
-                    function renderButton() {
-                      gapi.signin2.render('my-signin2', {
-                        'scope': 'profile email',
-                        'width': 240,
-                        'height': 50,
-                        'longtitle': true,
-                        'theme': 'dark',
-                        'onsuccess': onSuccess,
-                        'onfailure': onFailure
-                      });
-                    }
-                    function signOut() {
-                      var auth2 = gapi.auth2.getAuthInstance();
-                      var username = (auth2.currentUser.get()).getBasicProfile().getName();
-                      sendData(username);
-                      auth2.signOut().then(function () {
-                        var user_indicator = document.getElementById("username");
-                        user_indicator.innerHTML = "not logged in :(";
-                      });
-                      $("#success-alert").show();
-                      window.setTimeout(function() {
-                          $("success-alert").fadeTo(2000, 500).slideUp(5000, function(){
-                              $(this).remove(); 
-                          });
-                      }, 5000);
-                      sessionStorage.clear();
-                      //location.reload();
-                    }
-                     function show_user_info() {
-                        $("#success-alert").hide();
-                        var username = "not logged in :("
-                        if(sessionStorage.getItem('myUserEntity') != null){
-                            username = sessionStorage.getItem('user');
-                        }
-                        var user_indicator = document.getElementById("username");
-                        user_indicator.innerHTML = username;
-                      }
-                      function sendData(username){
-                          //used to collect the data
-                          var theData;
-
-                        //creating new XMLHttp Post Request
-                          request = new XMLHttpRequest();
-                          request.open("POST", 'https://immense-spire-32496.herokuapp.com/submit.json', true);
-                          
-                          //sets content type -- encoded url
-                          request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                          request.onreadystatechange = function(){
-                           if(request.readyState == 4 && request.status != 200) {
-                                  console.log("Can't find the server!");
-                            }
-                            //still waiting for status 
-                            else {
-                                  console.log("In progress...");
-                            }
-                          };
-                          theData ='username='+username;
-                          request.send(theData);
-                      }
-                  </script>
-
-                  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
               </div>
             </div>
       </div>
