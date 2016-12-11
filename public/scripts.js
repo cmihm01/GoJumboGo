@@ -56,7 +56,6 @@ function draw_table (logindata) {
     tabBody=document.getElementsByTagName("tbody").item(0);
     var num_logins = logindata.length;
     for (var i = 0; i < num_logins; i++) {
-        console.log(logindata[i]);
         row=document.createElement("tr");
          cell1 = document.createElement("td");
          cell2 = document.createElement("td");
