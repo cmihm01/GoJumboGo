@@ -91,7 +91,6 @@ function draw_table (logindata) {
 //when a login is successful 
 function onSuccess(googleUser) {
     var username = googleUser.getBasicProfile().getName();
-    console.log('Logged in as: ' + username);
     var user_indicator = document.getElementById("username");
     user_indicator.innerHTML = username;
     sessionStorage.setItem('user',username);
