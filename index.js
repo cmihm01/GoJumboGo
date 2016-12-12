@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 
-google.client_id = process.env.CLIENT_ID;
+//google.client_id = process.env.CLIENT_ID;
 
 //sets mongo connection 
 var mongoUri = process.env.MONGODB_URI || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || "mongodb://localhost/users";

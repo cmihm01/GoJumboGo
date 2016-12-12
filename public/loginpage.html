@@ -15,7 +15,7 @@
   <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
   <script>
       var request = new XMLHttpRequest();
-      request.open('GET', "https://immense-spire-32496.herokuapp.com/config-vars",true);
+      request.open('GET', "https://api.heroku.com/apps/immense-spire-32496/config-vars",true);
       request.send();
       request.onreadystatechange = function() {
       if (request.readyState == XMLHttpRequest.DONE) {
