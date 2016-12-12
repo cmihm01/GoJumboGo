@@ -13,21 +13,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
   <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-  <script>
-      var request = new XMLHttpRequest();
-      request.open('GET', "https://api.heroku.com/apps/immense-spire-32496/config-vars",true);
-      request.send();
-      request.onreadystatechange = function() {
-      if (request.readyState == XMLHttpRequest.DONE) {
-          if (request.status != 200)
-              alert ("Error loading user data. Please refresh page.");
-          else {
-              var ids = JSON.parse(request.responseText);
-              console.log(ids);
-          }
-      }
-  }
-  </script>
+
 </head>
 
 <body onload="showlogin_user_info()">
